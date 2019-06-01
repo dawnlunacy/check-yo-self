@@ -1,3 +1,59 @@
-*, *:before, *:after {
-  box-sizing: inherit;
+* {
+  box-sizing: border-box;
 }
+
+body {
+  font-family:'Open Sans', sans-serif;
+  height:100vh;
+}
+
+header {
+  background-color:#1F1F3D;
+  display:flex;
+  justify-content:space-between;
+  height:70px;
+  padding:10px;
+  width:100%;
+}
+
+h1 {
+  color:#FFF;
+  font-family:Open Sans;
+  font-size:36px;
+  font-weight:bold;
+  margin-top:5px;
+}
+
+.yo {
+  color:#FFC30C;
+}
+
+.search-form {
+  display:flex;
+  width:30%;
+}
+
+#search-btn {
+  background-color: #C7D3D8;
+  border:none;
+  border-radius:2.5px 0 0 2.5px;
+  height:45px;
+  padding:0;
+  width:45px;
+}
+
+.search-img {
+  height:60%;
+  width:60%;
+}
+
+#search-input {
+  border-radius:0px 2.5px 2.5px 0;
+  border:none;
+  font-family:'Open Sans', sans-serif;
+  font-size:14px;
+  height:45px;
+  width:100%;
+}
+
+
