@@ -60,8 +60,8 @@ h1 {
 nav {
   background-color: #587A8A;
   border-right: 2px solid #3C6577;
-  height: 100%;
-  width: 33%;
+  height: auto;
+  width: 33.3%;
 }
 
 .task-title-label {
@@ -140,4 +140,86 @@ nav {
 
 #filter-btn {
   margin-top: 8%;
+}
+
+main {
+  display: flex;
+  height: 90%;
+}
+
+.card-display-area {
+  background-color: #F3F6F7;
+  column-gap: 30px;
+  columns: 2 250px;
+  height: auto;
+  padding: 30px;
+  width: 66.7%;
+}
+
+.card-template {
+  background-color: #F9FDFF;
+  border: 2px solid #C7D3D8;
+  display: inline-block;
+  margin: 0 30px 30px 0;
+  max-width:350px;
+  min-height: 200px;
+  min-width: 250px;
+  padding: 10px 5px 5px 5px;
+}
+
+.card-title {
+  color: #1F1F3D;
+  font-family:'Open-Sans', sans-serif;
+  font-weight: 800;
+  font-size: 24px;
+  height: 50px;
+  border-bottom: 2px solid #C7D3D8;
+  padding:15px 10px 10px 10px;
+}
+
+.card-main {
+  min-height: 125px;
+}
+
+.card-task-list {
+  font-family: 'Open-Sans', sans-serif;
+  color: #1F1F3D;
+  font-weight: 400;
+  font-size:20px;
+  padding:20px 10px;
+  width:100%;
+}
+
+.card-footer {
+  align-items: flex-end;
+  border-top: 2px solid #C7D3D8; 
+  color: #1F1F3D;
+  color:#486F7F;
+  display: flex;
+  font-family: 'Open-Sans', sans-serif;
+  font-weight: 400;
+  height: 50px;
+  justify-content: space-between;
+  padding: 5px 10px 0px 10px;
+}
+
+.card-urgent-btn
+.card-delete-btn {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 40px;
+  width: 40px;
+}
+
+.card-footer-text {
+  color: #587A8A;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.footer-img {
+  height: 20px;
+  width: 20px;
+  margin-left:24%;
 }
