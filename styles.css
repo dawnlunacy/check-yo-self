@@ -4,56 +4,110 @@
 
 body {
   font-family:'Open Sans', sans-serif;
-  height:100vh;
+  height: 100vh;
 }
 
 header {
-  background-color:#1F1F3D;
-  display:flex;
-  justify-content:space-between;
-  height:70px;
-  padding:10px;
-  width:100%;
+  background-color: #1F1F3D;
+  display: flex;
+  justify-content: space-between;
+  height: 70px;
+  padding: 10px;
+  width: 100%;
 }
 
 h1 {
-  color:#FFF;
-  font-family:Open Sans;
-  font-size:36px;
-  font-weight:bold;
-  margin-top:5px;
+  color: #FFF;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 36px;
+  font-weight: bold;
+  margin-top: 5px;
 }
 
 .yo {
-  color:#FFC30C;
+  color: #FFC30C;
 }
 
 .search-form {
-  display:flex;
-  width:30%;
+  display: flex;
+  width: 33%;
 }
 
 #search-btn {
   background-color: #C7D3D8;
-  border:none;
-  border-radius:2.5px 0 0 2.5px;
-  height:45px;
-  padding:0;
-  width:45px;
+  border: none;
+  border-radius: 2.5px 0 0 2.5px;
+  height: 45px;
+  padding: 0;
+  width: 45px;
 }
 
 .search-img {
-  height:60%;
-  width:60%;
+  height: 60%;
+  width: 60%;
 }
 
 #search-input {
-  border-radius:0px 2.5px 2.5px 0;
-  border:none;
-  font-family:'Open Sans', sans-serif;
-  font-size:14px;
+  border-radius: 0px 2.5px 2.5px 0;
+  border: none;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  height: 45px;
+  width: 100%;
+}
+
+nav {
+  background-color: #587A8A;
+  border-right: 2px solid #819aa7;
+  height: 100%;
+  width: 33%;
+}
+
+.task-title-label {
+  text-align: left;
+  display: block;
+  color: #C7D3D8;
+  padding: 8% 0% 2% 2%;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+}
+
+.task-title-input {
+  border: 2px solid #1F1F3D;
+  border-radius: 2.5px;
+  width: 96%;
   height:45px;
-  width:100%;
+  margin: 2%;
+}
+
+.task-item-label {
+  text-align: left;
+  display: block;
+  color: #C7D3D8;
+  padding: 8% 0% 2% 2%;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+}
+
+.add-btn-container {
+  display: flex;
+  width: 96%;
+  margin: 2%;
+}
+
+.task-item-input {
+  border: 2px solid #1F1F3D;
+  width: 87%;
+  height: 45px;
+}
+
+.add-task-item-btn {
+  width: 45px;
+  background-color: #1F1F3D;
+  border: 2px #1F1F3D;
+  border-radius: 0 2.5px 2.5px 0;
+  height: 45px;
+  padding: 2%;
 }
 
 
