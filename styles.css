@@ -37,9 +37,9 @@ h1 {
   background-color: #C7D3D8;
   border: none;
   border-radius: 2.5px 0 0 2.5px;
-  height: 45px;
+  height: 50px;
   padding: 0;
-  width: 45px;
+  width: 50px;
 }
 
 .search-img {
@@ -51,63 +51,93 @@ h1 {
   border-radius: 0px 2.5px 2.5px 0;
   border: none;
   font-family: 'Open Sans', sans-serif;
-  font-size: 14px;
-  height: 45px;
+  font-size: 16px;
+  height: 50px;
+  padding:10px;
   width: 100%;
 }
 
 nav {
   background-color: #587A8A;
-  border-right: 2px solid #819aa7;
+  border-right: 2px solid #3C6577;
   height: 100%;
   width: 33%;
 }
 
 .task-title-label {
-  text-align: left;
-  display: block;
   color: #C7D3D8;
-  padding: 8% 0% 2% 2%;
+  display: block;
   font-family: 'Open Sans', sans-serif;
   font-weight: 600;
+  padding: 7% 0% 0% 2%;
+  text-align: left;
 }
 
 .task-title-input {
-  border: 2px solid #1F1F3D;
   border-radius: 2.5px;
-  width: 96%;
-  height:45px;
+  border: 2px solid #1F1F3D;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 18px;
+  height:50px;
   margin: 2%;
+  padding:10px;
+  width: 96%;
 }
 
 .task-item-label {
-  text-align: left;
-  display: block;
   color: #C7D3D8;
-  padding: 8% 0% 2% 2%;
+  display: block;
   font-family: 'Open Sans', sans-serif;
   font-weight: 600;
+  padding: 7% 0% 0% 2%;
+  text-align: left;
 }
 
 .add-btn-container {
   display: flex;
-  width: 96%;
   margin: 2%;
+  width: 96%;
 }
 
 .task-item-input {
   border: 2px solid #1F1F3D;
-  width: 87%;
-  height: 45px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 18px;
+  height: 50px;
+  padding:10px;
+  width: 90%;
 }
 
 .add-task-item-btn {
-  width: 45px;
   background-color: #1F1F3D;
-  border: 2px #1F1F3D;
   border-radius: 0 2.5px 2.5px 0;
-  height: 45px;
+  border: 2px #1F1F3D;
+  height: 50px;
   padding: 2%;
+  width: 50px;
 }
 
+.nav-btn {
+  background-color: #1F1F3D;
+  border-radius:2.5px;
+  border: #1F1F3D;
+  color:#FFF;
+  font-family:'Open Sans', sans-serif;
+  font-size:20px;
+  font-weight:600;
+  height:50px;
+  margin:2%;
+  width:96%;
+}
 
+.task-form-top-section {
+  border-bottom: 2px solid #3C6577;
+}
+
+#clear-all-btn {
+  margin-bottom: 8%;
+}
+
+#filter-btn {
+  margin-top: 8%;
+}
