@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="reset.css">
   <link rel="stylesheet" type="text/css" href="styles.css">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,800&display=swap" rel="stylesheet"> 
 </head>
 <body>
   <header>
@@ -15,18 +15,28 @@
     <button type="submit" id="search-btn">
       <img src="images/search.svg" class="search-img">
     </button>
-    <input type="text" class="input" id="search-input" placeholder=" Search">
+    <input type="text" id="search-input" placeholder=" Search">
     </form>
   </header>
   <nav>
     <section class="task-form-section">
-      <form class="task-form">
-        <label for="task-title-input" class="task-title">Task Title</label>
-        <input type="text" class= "input" id="task-title-input" aria-required="true">
-        <label for="task-item-input" class="task-item">Task Item</label>
-        <button type="submit" class="btn" id="make-task-list-btn" disabled>Make Task List</button>
+      <form class="task-title-form">
+        <label for="task-title-input" class="task-title-label">Task Title</label>
+        <input type="text" class="task-title-input" aria-required="true">
+      </form>
+      <ul class="preview-task-item">
+      </ul>
+      <form class="task-item-form">
+        <label for="task-item-input" class="task-item-label">Task Item</label>
+        <div class="add-btn-container">
+          <input type="text" class="task-item-input" aria-required="true">
+          <button type="submit" class="add-task-item-btn">
+            <img src="images/plus.svg" class="add-task-item-img">
+          </button>
+        </div>
+      </form>
+      <button type="submit" class="btn" id="make-task-list-btn" disabled>Make Task List</button>
       <button type="submit" class="btn" id="clear-all-btn" disabled>Clear All</button>
-    </form>
     </section>
     <button type="submit" class="btn" id="filter-btn" disabled>Filter by Urgency</button>
   </nav>
