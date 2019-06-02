@@ -18,30 +18,78 @@
     <input type="text" id="search-input" placeholder=" Search">
     </form>
   </header>
-  <nav>
-    <section class="task-form-top-section">
-      <form class="task-title-form">
-        <label for="task-title-input" class="task-title-label">Task Title</label>
-        <input type="text" class="task-title-input" aria-required="true">
-      </form>
-      <ul class="preview-task-item">
-      </ul>
-      <form class="task-item-form">
-        <label for="task-item-input" class="task-item-label">Task Item</label>
-        <div class="add-btn-container">
-          <input type="text" class="task-item-input" aria-required="true">
-          <button type="submit" class="add-task-item-btn">
-            <img src="images/plus.svg" class="add-task-item-img">
-          </button>
-        </div>
-      </form>
-      <button type="submit" class="nav-btn" id="make-task-list-btn" disabled>Make Task List</button>
-      <button type="submit" class="nav-btn" id="clear-all-btn" disabled>Clear All</button>
-    </section>
-    <button type="submit" class="nav-btn" id="filter-btn" disabled>Filter by Urgency</button>
-  </nav>
   <main>
+    <nav>
+      <section class="task-form-top-section">
+        <form class="task-title-form">
+          <label for="task-title-input" class="task-title-label">Task Title</label>
+          <input type="text" class="task-title-input" aria-required="true">
+        </form>
+        <ul class="preview-task-item">
+        </ul>
+        <form class="task-item-form">
+          <label for="task-item-input" class="task-item-label">Task Item</label>
+          <div class="add-btn-container">
+            <input type="text" class="task-item-input" aria-required="true">
+            <button type="submit" class="add-task-item-btn">
+              <img src="images/plus.svg" class="add-task-item-img">
+            </button>
+          </div>
+        </form>
+        <button type="submit" class="nav-btn" id="make-task-list-btn" disabled>Make Task List</button>
+        <button type="submit" class="nav-btn" id="clear-all-btn" disabled>Clear All</button>
+      </section>
+     <button type="submit" class="nav-btn" id="filter-btn" disabled>Filter by Urgency</button>
+    </nav>
     <section class="card-display-area">
+      <article class="card-template">
+        <h2 class="card-title">`${title}`</h2>
+        <main class="card-main">
+          <ul class="card-task-list"> `${task-list} </ul>
+        </main>
+        <footer class="card-footer">
+          <div class="card-urgent-btn">
+          <img src="images/urgent.svg" class="footer-img">
+          <p class="card-footer-text urgent">URGENT</p>
+        </div>
+        <div class="card-delete-btn">
+          <img src="images/delete.svg" class="footer-img">
+          <p class="card-footer-text delete">DELETE</p>
+        </div>
+      </footer>
+    </article>
+         <article class="card-template">
+        <h2 class="card-title">`${title}`</h2>
+        <main class="card-main">
+          <ul class="card-task-list"> `${task-list} </ul>
+        </main>
+        <footer class="card-footer">
+          <div class="card-urgent-btn">
+          <img src="images/urgent.svg" class="footer-img">
+          <p class="card-footer-text urgent">URGENT</p>
+        </div>
+        <div class="card-delete-btn">
+          <img src="images/delete.svg" class="footer-img">
+          <p class="card-footer-text delete">DELETE</p>
+        </div>
+      </footer>
+    </article>
+       <article class="card-template">
+        <h2 class="card-title">`${title}`</h2>
+        <main class="card-main">
+          <ul class="card-task-list"> `${task-list} </ul>
+        </main>
+        <footer class="card-footer">
+          <div class="card-urgent-btn">
+          <img src="images/urgent.svg" class="footer-img">
+          <p class="card-footer-text urgent">URGENT</p>
+        </div>
+        <div class="card-delete-btn">
+          <img src="images/delete.svg" class="footer-img">
+          <p class="card-footer-text delete">DELETE</p>
+        </div>
+      </footer>
+    </article>
     </section>
   </main>
 </body>
