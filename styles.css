@@ -57,6 +57,8 @@ h1 {
   width: 100%;
 }
 
+/* Nav Bar */
+
 nav {
   background-color: #587A8A;
   border-right: 2px solid #3C6577;
@@ -147,6 +149,8 @@ main {
   height: 90%;
 }
 
+/* Task-List Display Area */
+
 .card-display-area {
   background-color: #F3F6F7;
   column-gap: 30px;
@@ -165,6 +169,7 @@ main {
   min-height: 200px;
   min-width: 250px;
   padding: 10px 5px 5px 5px;
+  width: 100%;
 }
 
 .card-title {
@@ -174,7 +179,7 @@ main {
   font-size: 24px;
   height: 50px;
   border-bottom: 2px solid #C7D3D8;
-  padding:15px 10px 10px 10px;
+  padding:10px;
 }
 
 .card-main {
@@ -221,5 +226,26 @@ main {
 .footer-img {
   height: 20px;
   width: 20px;
-  margin-left:24%;
+  margin-left: 24%;
 }
+
+/* Urgent Active */
+
+#card-template-urgent {
+  background-color:#FFE79D;
+  border: 2px solid #FEC61B;
+}
+
+#card-title-urgent {
+  border-bottom: 2px solid #FEC61B;
+}
+
+#card-footer-urgent {
+  border-top: 2px solid #FEC61B;
+}
+
+#card-footer-text-urgent {
+  color:#B7452D;
+}
+
+/*End Urgent Active */

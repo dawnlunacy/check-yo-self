@@ -42,26 +42,26 @@
      <button type="submit" class="nav-btn" id="filter-btn" disabled>Filter by Urgency</button>
     </nav>
     <section class="card-display-area">
-      <article class="card-template">
-        <h2 class="card-title">`${title}`</h2>
+      <article class="card-template" id="card-template-urgent">
+        <h2 class="card-title" id="card-title-urgent">`${title}`</h2>
         <main class="card-main">
-          <ul class="card-task-list"> `${task-list} </ul>
+          <ul class="card-task-list"> `${task-list}`</ul>
         </main>
-        <footer class="card-footer">
+        <footer class="card-footer" id="card-footer-urgent">
           <div class="card-urgent-btn">
           <img src="images/urgent.svg" class="footer-img">
-          <p class="card-footer-text urgent">URGENT</p>
+          <p class="card-footer-text" id="card-footer-text-urgent">URGENT</p>
         </div>
         <div class="card-delete-btn">
           <img src="images/delete.svg" class="footer-img">
-          <p class="card-footer-text delete">DELETE</p>
+          <p class="card-footer-text" id="delete">DELETE</p>
         </div>
       </footer>
     </article>
          <article class="card-template">
         <h2 class="card-title">`${title}`</h2>
         <main class="card-main">
-          <ul class="card-task-list"> `${task-list} </ul>
+          <ul class="card-task-list">`${task-list}`</ul>
         </main>
         <footer class="card-footer">
           <div class="card-urgent-btn">
@@ -75,9 +75,9 @@
       </footer>
     </article>
        <article class="card-template">
-        <h2 class="card-title">`${title}`</h2>
+        <h2 class="card-title">`YAHOOO Almost done for the day!`</h2>
         <main class="card-main">
-          <ul class="card-task-list"> `${task-list} </ul>
+          <ul class="card-task-list"> I Love LANA ! I AM SO HAPPY YOU ARE HERE! I ant to see Appollo!</ul>
         </main>
         <footer class="card-footer">
           <div class="card-urgent-btn">
@@ -93,6 +93,8 @@
     </section>
   </main>
 </body>
+<script type="text/javascript" src="todo-list.js"></script>
+<script type="text/javascript" src="main.js"></script>
 </html>
 
 
