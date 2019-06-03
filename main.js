@@ -3,6 +3,7 @@
 //Query Selectors//
 
 var taskTitleInput = document.querySelector('.task-title-input');
+var taskItemInput = document.querySelector('.task-item-input')
 var previewTaskItem = document.querySelector('.preview-task-item');
 var addPreviewTaskItemBtn = document.querySelector('.add-preview-task-item-btn');
 var makeTaskListBtn = document.getElementById('make-task-list-btn');
@@ -28,15 +29,7 @@ var taskListArray = []
 //Event Listeners
 
 // window.addEventListener('load', pageLoadHelper);
-
-
-
-
-
-
-
-
-
+addPreviewTaskItemBtn.addEventListener('click', previewTaskItemHelper)
 
 
 
@@ -52,7 +45,17 @@ var taskListArray = []
   //run hiddenMsgHelper()
   //ensure fields are empty and buttons are disabled
 
+function previewTaskItemHelper(e) {
+  e.preventDefault()
+  var taskPreviewID = date.now()
+  var taskPreview = taskItemInput.innerText 
+  var NewPreviewTask = new ToDoTask(taskPreviewID, taskPreview)
 
+}
+
+function appendPreviewTaskItem(){
+  
+}
 
 //Data Model:
   //A to-do list has an id, title, tasks, and urgent property.

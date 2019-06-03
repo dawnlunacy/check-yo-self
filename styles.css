@@ -119,17 +119,37 @@ nav {
   width: 50px;
 }
 
+
+.preview-checkbox-img {
+  width: 20px;
+  height: 20px;
+  display: inline;
+  margin: 20px 5px 0px 10px;
+}
+
+.preview-task-items {
+  padding:1%;
+}
+
+.preview-task-item {
+  color: #F3F6F7;
+  font-family:'Open Sans', sans-serif;
+  font-size: 20px;
+  word-wrap: break-word;
+  display: inline;
+}
+
 .nav-btn {
   background-color: #1F1F3D;
-  border-radius:2.5px;
+  border-radius: 2.5px;
   border: #1F1F3D;
-  color:#FFF;
+  color: #FFF;
   font-family:'Open Sans', sans-serif;
-  font-size:20px;
-  font-weight:600;
-  height:50px;
-  margin:2%;
-  width:96%;
+  font-size: 20px;
+  font-weight: 600;
+  height: 50px;
+  margin: 2%;
+  width: 96%;
 }
 
 .task-form-top-section {
@@ -207,7 +227,7 @@ li {
   color: #1F1F3D;
   display:inline;
   font-weight: 400;
-  font-size:24px;
+  font-size:22px;
   width:100%;
   word-wrap:break-word;
 }

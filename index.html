@@ -25,8 +25,16 @@
           <label for="task-title-input" class="task-title-label">Task Title</label>
           <input type="text" class="task-title-input" aria-required="true">
         </form>
-        <ul class="preview-task-item">
+        <div class="preview-task-items-container">
+        <ul class="preview-task-items">
+          <img src="images/checkbox.svg" class="preview-checkbox-img" alt="empty preview task item checkbox">
+          <li class="preview-task-item" > YAHOO</li>
         </ul>
+         <ul class="preview-task-items">
+          <img src="images/checkbox.svg" class="preview-checkbox-img" alt="empty preview task item checkbox">
+          <li class="preview-task-item" > YAHOO YAHOO YAHOO YAHOO YAHOO YAHOO YAHOO YAHOO YAHOO YAHOO </li>
+        </ul>
+        </div>
         <form class="task-item-form">
           <label for="task-item-input" class="task-item-label">Task Item</label>
           <div class="add-btn-container">
@@ -36,7 +44,7 @@
             </button>
           </div>
         </form>
-        <button type="submit" class="nav-btn" id="make-task-list-btn" disabled>Make Task List</button>
+        <button type="submit" class="nav-btn disabled" id="make-task-list-btn" disabled>Make Task List</button>
         <button type="submit" class="nav-btn" id="clear-all-btn" disabled>Clear All</button>
       </section>
      <button type="submit" class="nav-btn" id="filter-btn" disabled>Filter by Urgency</button>

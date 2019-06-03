@@ -27,10 +27,14 @@ class ToDoList {
 
 
 class ToDoTask {
-  constructor(id, task, complete) {
+  constructor(id, task) {
     this.id = id;
     this.task = task;
-    this.complete = complete || false;
+    this.complete = false;
+  };
+
+  saveToStorage() { 
+  
   };
 };
 
