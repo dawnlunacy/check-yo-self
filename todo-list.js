@@ -1,7 +1,10 @@
  //A ToDoList Class
 class ToDoList {
-  constructor() {
-
+  constructor(id, title, tasksArray, urgency) {
+    this.id = id;
+    this.title = title;
+    this.tasks = tasksArray || [];
+    this.urgency = urgency || false; 
   };
 
   saveToStorage() {
@@ -10,7 +13,7 @@ class ToDoList {
 
   deleteFromStorage() {
 
-  }:
+  };
 
   updateToDo() {
     //(should update the todo's title and urgency)
@@ -23,6 +26,14 @@ class ToDoList {
 };
 
 
+class ToDoTask {
+  constructor(id, task, complete) {
+    this.id = id;
+    this.task = task;
+    this.complete = complete || false;
+  };
+};
+
 
 
  //methods must include but are not limited to: 
@@ -32,7 +43,36 @@ class ToDoList {
   //4. updateToDo(should update the todo's title and urgency)
   //5. updateTask(should update a task's content and if it has been completed)
 
+//Data Model:
+  //A to-do list has an id, title, tasks, and urgent property.
+    // to-do list is an object with the properties listed above. 
+      // The id property should be a unique identifier
+          // use date.now()
+      //title is a string
+        //title = TitleText.innerText ( which is pulled with a query selector on class="task-title-input")
+      //urgent is a boolean
+        //urgentStatus = True || False  ( default of false)
+      //tasks should be an array of objects
+        //var tasks = []
+          // var task = {}
+              //need to be able to identify each task from one another
+              // push task objects into an array of tasks, one tasks array for each card / to-do list
 
+
+        //Each task in the array should be an object 
+                 // will need to create a class to instantiate each instance of this object with it's properties
+            //1.you'll need a way to identify these objects
+                // create a date.now on this instance to identify. 
+            //2.track whether the task has been completed
+                // true or default false for the values of a key property of taskCompleted. 
+            //3.and store the task's text..
+                //use the method on this class to store the text into local storage
+                //saveToStorage method
+                //deleteFromStorage method
+                //will need to store as a variable and have that variable set to the inner text of the list item 
+                //will have to be able to clear/delete that item // removing it completely from the dom
+
+  //Each to-do list on the page should be created as an instance of the ToDoList class
 
 
     // Object:   A bundle of behavior (methods) and state (properties)

@@ -110,7 +110,7 @@ nav {
   width: 90%;
 }
 
-.add-task-item-btn {
+.add-preview-task-item-btn {
   background-color: #1F1F3D;
   border-radius: 0 2.5px 2.5px 0;
   border: 2px #1F1F3D;
@@ -186,13 +186,30 @@ main {
   min-height: 125px;
 }
 
+ul {
+  width: 100%;
+}
+
+li {
+  padding:0px;
+  margin:0px;
+}
+
+.card-checkbox-img {
+  width:20px;
+  height:20px;
+  display:inline;
+  margin:20px 5px 0px 10px;
+}
+
 .card-task-list {
   font-family: 'Open-Sans', sans-serif;
   color: #1F1F3D;
+  display:inline;
   font-weight: 400;
-  font-size:20px;
-  padding:20px 10px;
+  font-size:24px;
   width:100%;
+  word-wrap:break-word;
 }
 
 .card-footer {

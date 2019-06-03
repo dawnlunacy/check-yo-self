@@ -1,29 +1,113 @@
 //main.js file should contain all DOM related javascript
 
 //Query Selectors//
-//
+
+var taskTitleInput = document.querySelector('.task-title-input');
+var previewTaskItem = document.querySelector('.preview-task-item');
+var addPreviewTaskItemBtn = document.querySelector('.add-preview-task-item-btn');
+var makeTaskListBtn = document.getElementById('make-task-list-btn');
+var clearAllBtn = document.getElementById('clear-all-btn');
+var filterByUrgencyBtn = document.getElementById('filter-btn');
+var cardDisplayArea = document.querySelector('.card-display-area');
+var hiddenMsg = document.querySelector('.hidden-msg');
+var cardTemplate = document.querySelector('.card-template');
+var cardTemplateUrgent = document.getElementById('card-template-urgent');
+var cardTitle = document.querySelector('.card-title');
+var cardTitleUrgent = document.getElementById('card-title-urgent');
+var cardMain = document.querySelector('.card-main');
+var cardTaskList = document.querySelector('card-task-list');
+var cardFooter = document.querySelector('.card-footer');
+var cardUrgentBtn = document.querySelector('.card-urgent-btn');
+var cardDeleteBtn = document.querySelector('.card-delete-btn');
+
+
+//task List Array 
+var taskListArray = []
+
+
+//Event Listeners
+
+// window.addEventListener('load', pageLoadHelper);
+
+
+
+
+
+
+
+
+
+
+
+
+
+//functions
+
+
+// pageLoadHelper() {
+ 
+// };
+  //check todolist array from local storage and reinstantiate that array
+  //reappend cards to dom by passing the reinstatiated array info to createToDoList()
+  //run hiddenMsgHelper()
+  //ensure fields are empty and buttons are disabled
+
 
 
 //Data Model:
   //A to-do list has an id, title, tasks, and urgent property.
+    // to-do list is an object with the properties listed above. 
       // The id property should be a unique identifier
+          // use date.now()
       //title is a string
+        //title = TitleText.innerText ( which is pulled with a query selector on class="task-title-input")
       //urgent is a boolean
+        //urgentStatus = True || False  ( default of false)
       //tasks should be an array of objects
+        //var tasks = []
+          // var task = {}
+              //need to be able to identify each task from one another
+              // push task objects into an array of tasks, one tasks array for each card / to-do list
 
-        //Each task in the array should be an object
+
+        //Each task in the array should be an object 
+                 // will need to create a class to instantiate each instance of this object with it's properties
             //1.you'll need a way to identify these objects
+                // create a date.now on this instance to identify. 
             //2.track whether the task has been completed
+                // true or default false for the values of a key property of taskCompleted. 
             //3.and store the task's text..
+                //use the method on this class to store the text into local storage
+                //saveToStorage method
+                //deleteFromStorage method
+                //will need to store as a variable and have that variable set to the inner text of the list item 
+                //will have to be able to clear/delete that item // removing it completely from the dom
 
   //Each to-do list on the page should be created as an instance of the ToDoList class
 
 //Phase One:
   //When a user adds a new Task Item:
     // 1. The task is added to the bottom of the checklist between the Task Title and Task Item inputs 
+
+            //will need to pass the variable of TaskTitle to the ToDoList Class 
+            // Each potentialTaskItem will have to go into the class of potentialTaskItems before that array of potentialTaskItems can be passed as an argument as -tasksArray- to the NewInstantiation of ToDoList for the parameter associated with tasks
+
+
+
     // 2. Each task on the checklist should also be able to be removed by clicking the respective "delete" button.
+
+            //need to add a query selector for the img on the left associated with where the user can potentially click to delete the individual task.
+            //when clicked it should invoke the delete method on that object of task // clear that space entirely
+
+
+
     // 3. It should not add a task to the checklist if the input is empty.
+            //will need a conditional that will not allow an empty string in the input to allow it to render to dom or instatitate itself
+
+
+
     // 4. Tasks on the checklist of the form DO NOT NEED TO PERSIST
+          //when the card is created to the DOM, this entire array can be cleared. 
 
   //When a user clicks Make Task List: 
     //1. A new card with the provided title and tasks should appear in the todo list.
