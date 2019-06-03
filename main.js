@@ -3,9 +3,10 @@
 //Query Selectors//
 
 var taskTitleInput = document.querySelector('.task-title-input');
-var taskItemInput = document.querySelector('.task-item-input')
+var taskItemInput = document.querySelector('.task-item-input');
 var previewTaskItem = document.querySelector('.preview-task-item');
 var addPreviewTaskItemBtn = document.querySelector('.add-preview-task-item-btn');
+var addPreviewTaskItemContainer = document.querySelector('.preview-task-items-container');
 var makeTaskListBtn = document.getElementById('make-task-list-btn');
 var clearAllBtn = document.getElementById('clear-all-btn');
 var filterByUrgencyBtn = document.getElementById('filter-btn');
@@ -47,15 +48,22 @@ addPreviewTaskItemBtn.addEventListener('click', previewTaskItemHelper)
 
 function previewTaskItemHelper(e) {
   e.preventDefault()
-  var taskPreviewID = date.now()
-  var taskPreview = taskItemInput.innerText 
-  var NewPreviewTask = new ToDoTask(taskPreviewID, taskPreview)
+  var taskPreviewId = Date.now()
+  var taskPreview = taskItemInput.value
+  appendPreviewTaskItem(taskPreviewId, taskPreview)
+};
 
-}
-
-function appendPreviewTaskItem(){
-  
-}
+function appendPreviewTaskItem(id, task){
+    console.log("hello")
+    var previewToAppend = 
+    `<ul class="preview-task-items">
+          <li class="preview-task-item" data-id=${id} >
+            <img src="images/checkbox.svg" class="preview-checkbox-img" alt="empty preview task item checkbox">
+            ${task}
+            </li>
+        </ul>`
+        addPreviewTaskItemContainer.insertAdjacentHTML('beforeend', previewToAppend)
+};
 
 //Data Model:
   //A to-do list has an id, title, tasks, and urgent property.
