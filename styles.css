@@ -126,10 +126,10 @@ nav {
 }
 
 .preview-checkbox-img {
-  width: 20px;
-  height: 20px;
-  display: inline;
-  margin: 20px 5px 0px 10px;
+  width: 23px;
+  height: 23px;
+  margin: 0px 10px 0px 20px;
+  color:#000;
 }
 
 .preview-task-items {
@@ -212,28 +212,34 @@ main {
 
 ul {
   width: 100%;
+  margin-top: 15px;
 }
 
 li {
-  padding:0px;
-  margin:0px;
+  padding: 0px;
+  margin: 0px;
+  display: flex;
+  line-height: 1.5;
+
+
+
 }
 
 .card-checkbox-img {
-  width:20px;
-  height:20px;
-  display:inline;
-  margin:20px 5px 0px 10px;
+  width: 20px;
+  height: 20px;
+  display: inline;
+  margin: 20px 5px 0px 10px;
 }
 
 .card-task-list {
   font-family: 'Open-Sans', sans-serif;
   color: #1F1F3D;
-  display:inline;
+  display: inline;
   font-weight: 400;
-  font-size:22px;
-  width:100%;
-  word-wrap:break-word;
+  font-size: 22px;
+  width: 100%;
+  word-wrap: break-word;
 }
 
 .card-footer {

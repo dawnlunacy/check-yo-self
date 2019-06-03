@@ -5,6 +5,7 @@
 var taskTitleInput = document.querySelector('.task-title-input');
 var taskItemInput = document.querySelector('.task-item-input');
 var previewTaskItem = document.querySelector('.preview-task-item');
+var previewTaskItemDeleteBtn = document.querySelector('.preview-checkbox-img')
 var addPreviewTaskItemBtn = document.querySelector('.add-preview-task-item-btn');
 var addPreviewTaskItemContainer = document.querySelector('.preview-task-items-container');
 var makeTaskListBtn = document.getElementById('make-task-list-btn');
@@ -31,6 +32,8 @@ var taskListArray = []
 
 // window.addEventListener('load', pageLoadHelper);
 addPreviewTaskItemBtn.addEventListener('click', previewTaskItemHelper)
+addPreviewTaskItemContainer.addEventListener('click', deletePreviewTaskItemFromDom)
+// taskItemInput.addEventListener('keyup', disableAddPreviewTaskBtn)
 
 
 
@@ -53,17 +56,37 @@ function previewTaskItemHelper(e) {
   appendPreviewTaskItem(taskPreviewId, taskPreview)
 };
 
-function appendPreviewTaskItem(id, task){
-    console.log("hello")
+function appendPreviewTaskItem(id, task) {
     var previewToAppend = 
     `<ul class="preview-task-items">
           <li class="preview-task-item" data-id=${id} >
-            <img src="images/checkbox.svg" class="preview-checkbox-img" alt="empty preview task item checkbox">
+            <img src="images/delete-list-item.svg" class="preview-checkbox-img" alt="empty preview task item checkbox">
             ${task}
             </li>
         </ul>`
         addPreviewTaskItemContainer.insertAdjacentHTML('beforeend', previewToAppend)
 };
+
+function deletePreviewTaskItemFromDom(e) {
+  if(e.target.closest('.preview-checkbox-img')) {
+   e.target.closest('.preview-task-item').remove()
+  };
+};
+
+
+
+
+// function disableAddPreviewTaskBtn() {
+//   if (taskItemInput.value === '') {
+//     makeTaskListBtn.disabled = true;
+//     makeTaskListBtn.classList.add('disabled')
+//   }else{
+//     makeTaskListBtn.disabled = false;
+//     makeTaskListBtn.classList.remove('disabled')
+//   };
+// };
+
+
 
 //Data Model:
   //A to-do list has an id, title, tasks, and urgent property.
@@ -114,6 +137,7 @@ function appendPreviewTaskItem(id, task){
 
     // 3. It should not add a task to the checklist if the input is empty.
             //will need a conditional that will not allow an empty string in the input to allow it to render to dom or instatitate itself
+
 
 
 
