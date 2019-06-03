@@ -1,14 +1,14 @@
  //A ToDoList Class
 class ToDoList {
-  constructor(id, title, tasksArray, urgency) {
-    this.id = id;
-    this.title = title;
-    this.tasks = tasksArray || [];
-    this.urgency = urgency || false; 
+  constructor(obj) {
+    this.id = obj.id;
+    this.title = obj.title;
+    this.tasks = obj.tasksArray || [];
+    this.urgency = obj.urgency || false; 
   };
 
-  saveToStorage() {
-
+  saveToStorage(ToDoLists) {
+    localStorage.setItem('ToDoLists', JSON.stringify(ToDoLists));
   };
 
   deleteFromStorage() {

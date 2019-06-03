@@ -105,7 +105,6 @@ if (taskItemInput.value !== '') {
 function disableMakeTaskListBtn() {
   
 if (addPreviewTaskItems.innerHTML !== '' && taskTitleInput.value !== '') {
-  console.log("testing", addPreviewTaskItems.innerHTML )
     makeTaskListBtn.disabled = false;
     makeTaskListBtn.classList.remove('disabled')
   } else {
@@ -115,12 +114,11 @@ if (addPreviewTaskItems.innerHTML !== '' && taskTitleInput.value !== '') {
 };
 
 function makeTaskList() {
-    tasksToObjects();
-    var tasksToAppend = tasksToObjects();
-    console.log("BOOTY", tasksToAppend)
+    // tasksToObjects();
+    // var tasksToAppend = tasksToObjects();
+    // console.log("BOOTY", tasksToAppend);
+    createNewToDoList() 
     
-    // var tasksToAppend =  
-  //call function to push the info on dom into an object literal//
      //use that to pass that information to createNewToDoList
       //use a forloop or forEach to loop through the array of objects and pull them out to pass them to the new instatiation ..//
 }
@@ -135,13 +133,22 @@ function tasksToObjects() {
         checked: false
     }
     taskItems.push(taskItem);
+    console.log("global-variable", taskItems);
   });
   return taskItems
   };
   
 
-function createNewToDoList(id, title, tasksArray, urgency) {
-  var newToDoList = new TodoList();
+function createNewToDoList() {
+  var tasksToAppend = tasksToObjects();
+  console.log("BOYA", tasksToAppend)
+  var newToDoList = new ToDoList({
+    id: Date.now(),
+    title: taskTitleInput.value,
+    tasksArray: tasksToAppend,
+    urgency: false
+    });
+  console.log(newToDoList)
   toDoListArray.push(newToDoList);
   newToDoList.saveToStorage(toDoListArray)
   //will need to clear the nav//
