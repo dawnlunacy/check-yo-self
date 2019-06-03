@@ -216,13 +216,9 @@ ul {
 }
 
 li {
-  padding: 0px;
-  margin: 0px;
+  margin-bottom: 5px;
   display: flex;
   line-height: 1.5;
-
-
-
 }
 
 .card-checkbox-img {
@@ -293,6 +289,10 @@ li {
 
 #card-footer-text-urgent {
   color:#B7452D;
+}
+
+.disabled {
+  background-color: #59597A;
 }
 
 /*End Urgent Active */

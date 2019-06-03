@@ -7,7 +7,9 @@ var taskItemInput = document.querySelector('.task-item-input');
 var previewTaskItem = document.querySelector('.preview-task-item');
 var previewTaskItemDeleteBtn = document.querySelector('.preview-checkbox-img')
 var addPreviewTaskItemBtn = document.querySelector('.add-preview-task-item-btn');
+var addPreviewTaskItemBtnImg = document.querySelector('.add-preview-task-item-img')
 var addPreviewTaskItemContainer = document.querySelector('.preview-task-items-container');
+var addPreviewTaskItems = document.querySelector('.preview-task-items')
 var makeTaskListBtn = document.getElementById('make-task-list-btn');
 var clearAllBtn = document.getElementById('clear-all-btn');
 var filterByUrgencyBtn = document.getElementById('filter-btn');
@@ -24,15 +26,21 @@ var cardUrgentBtn = document.querySelector('.card-urgent-btn');
 var cardDeleteBtn = document.querySelector('.card-delete-btn');
 
 
+
 //task List Array 
-var taskListArray = []
+var taskListArray = [];
+var toDoListArray = [];
 
 
 //Event Listeners
 
-// window.addEventListener('load', pageLoadHelper);
-addPreviewTaskItemBtn.addEventListener('click', previewTaskItemHelper)
-addPreviewTaskItemContainer.addEventListener('click', deletePreviewTaskItemFromDom)
+window.addEventListener('load', pageLoadHelper);
+addPreviewTaskItemBtn.addEventListener('click', previewTaskItemHelper);
+addPreviewTaskItemContainer.addEventListener('click', deletePreviewTaskItemFromDom);
+taskItemInput.addEventListener('keyup', disableAddPreviewTaskBtn);
+taskTitleInput.addEventListener('keyup', disableMakeTaskListBtn);
+makeTaskListBtn.addEventListener('click', makeTaskList);
+
 // taskItemInput.addEventListener('keyup', disableAddPreviewTaskBtn)
 
 
@@ -41,7 +49,10 @@ addPreviewTaskItemContainer.addEventListener('click', deletePreviewTaskItemFromD
 //functions
 
 
-// pageLoadHelper() {
+function pageLoadHelper() {
+  disableMakeTaskListBtn()
+};
+
  
 // };
   //check todolist array from local storage and reinstantiate that array
@@ -51,21 +62,24 @@ addPreviewTaskItemContainer.addEventListener('click', deletePreviewTaskItemFromD
 
 function previewTaskItemHelper(e) {
   e.preventDefault()
+  disableAddPreviewTaskBtn()
   var taskPreviewId = Date.now()
   var taskPreview = taskItemInput.value
   appendPreviewTaskItem(taskPreviewId, taskPreview)
 };
 
+
 function appendPreviewTaskItem(id, task) {
     var previewToAppend = 
-    `<ul class="preview-task-items">
-          <li class="preview-task-item" data-id=${id} >
-            <img src="images/delete-list-item.svg" class="preview-checkbox-img" alt="empty preview task item checkbox">
-            ${task}
-            </li>
-        </ul>`
-        addPreviewTaskItemContainer.insertAdjacentHTML('beforeend', previewToAppend)
+    `<li class="preview-task-item" data-id=${id} >
+        <img src="images/delete-list-item.svg" class="preview-checkbox-img" alt="empty preview task item checkbox">
+          ${task}
+      </li>`
+    addPreviewTaskItems.insertAdjacentHTML('beforeend', previewToAppend);
+    taskItemInput.value = '';
+    disableAddPreviewTaskBtn()
 };
+
 
 function deletePreviewTaskItemFromDom(e) {
   if(e.target.closest('.preview-checkbox-img')) {
@@ -74,13 +88,75 @@ function deletePreviewTaskItemFromDom(e) {
 };
 
 
+function disableAddPreviewTaskBtn() {
+if (taskItemInput.value !== '') {
+    addPreviewTaskItemBtn.disabled = false;
+    addPreviewTaskItemBtn.classList.remove('disabled')
+    addPreviewTaskItemBtnImg.classList.remove('disabled')
+  } else {
+    addPreviewTaskItemBtn.disabled = true;
+    addPreviewTaskItemBtn.classList.add('disabled')
+    addPreviewTaskItemBtnImg.classList.add('disabled')
+  };
+  disableMakeTaskListBtn()
+};
 
 
-// function disableAddPreviewTaskBtn() {
-//   if (taskItemInput.value === '') {
+function disableMakeTaskListBtn() {
+  
+if (addPreviewTaskItems.innerHTML !== '' && taskTitleInput.value !== '') {
+  console.log("testing", addPreviewTaskItems.innerHTML )
+    makeTaskListBtn.disabled = false;
+    makeTaskListBtn.classList.remove('disabled')
+  } else {
+    makeTaskListBtn.disabled = true;
+    makeTaskListBtn.classList.add('disabled')
+  };
+};
+
+function makeTaskList() {
+    tasksToObjects();
+    var tasksToAppend = tasksToObjects();
+    console.log("BOOTY", tasksToAppend)
+    
+    // var tasksToAppend =  
+  //call function to push the info on dom into an object literal//
+     //use that to pass that information to createNewToDoList
+      //use a forloop or forEach to loop through the array of objects and pull them out to pass them to the new instatiation ..//
+}
+
+function tasksToObjects() {
+  var tasks = document.querySelectorAll('.preview-task-item')
+  var taskItems = [];
+  tasks.forEach(function(task) {
+    var taskItem = {
+        taskID: task.dataset.id,
+        taskBody: task.innerText,
+        checked: false
+    }
+    taskItems.push(taskItem);
+  });
+  return taskItems
+  };
+  
+
+function createNewToDoList(id, title, tasksArray, urgency) {
+  var newToDoList = new TodoList();
+  toDoListArray.push(newToDoList);
+  newToDoList.saveToStorage(toDoListArray)
+  //will need to clear the nav//
+  //append card to dom//
+}
+// function appendToDoListToDom() {
+
+// }
+
+
+
+//   if (e.target('taskItemInput').value === '') {
 //     makeTaskListBtn.disabled = true;
 //     makeTaskListBtn.classList.add('disabled')
-//   }else{
+//   } else {
 //     makeTaskListBtn.disabled = false;
 //     makeTaskListBtn.classList.remove('disabled')
 //   };

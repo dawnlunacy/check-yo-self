@@ -26,17 +26,19 @@ class ToDoList {
 };
 
 
-class ToDoTask {
-  constructor(id, task) {
-    this.id = id;
-    this.task = task;
-    this.complete = false;
-  };
+// class ToDoTask {
+//   constructor(id, task) {
+//     this.id = id;
+//     this.task = task;
+//     this.complete = false;
+//   };
 
-  saveToStorage() { 
+//this is a way to do it, but later will make it more complicated than it really needs to be. We will not need any methods for this, which is clutch to deciding to instead just pass this information to an object literal with key value pairs. 
+
+//   saveToStorage() { 
   
-  };
-};
+//   };
+// };
 
 
 
