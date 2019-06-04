@@ -124,16 +124,14 @@ function tasksToObjects() {
   var taskItems = [];
   tasks.forEach(function(task) {
     var taskItem = {
-        taskID: task.dataset.id,
-        taskBody: task.innerText,
-        checked: false
+          taskID: task.dataset.id,
+          taskBody: task.innerText,
+          checked: false
     }
     taskItems.push(taskItem);
-    // console.log("global-variable", taskItems);
   });
   console.log("item-variable", taskItems);
   return taskItems
-
   };
   
 
@@ -151,26 +149,32 @@ function createNewToDoList() {
   console.log("hiiii", newToDoList)
   toDoListArray.push(newToDoList);
   newToDoList.saveToStorage(toDoListArray)
-  appendToDoListToDom(toDoListArray)
-  //append card to dom//
-}
+  appendToDoListToDom(newToDoList)
+};
 
-function appendToDoListToDom(toDoListArray) {
+function appendTaskToCard(newToDoList) {
+  var sortTasksList = '';
+  for (var i = 0; i < newToDoList.tasks.length; i++){
+    sortTasksList += 
+            `<img src="images/checkbox.svg" class="card-checkbox-img" alt="empty checkbox">
+            <li class="card-task-list" data-id=${newToDoList.tasks[i].id}>
+            ${newToDoList.tasks[i].taskBody}</li>`
+            console.log("TASK", newToDoList.tasks[i].taskBody)
+  } return sortTasksList;
+};
+
+function appendToDoListToDom(newToDoList) {
   console.log("HIYO", toDoListArray)
-  var cardsToAppend = [];
-  toDoListArray.forEach(function(toDoList) {
-    cardsToAppend.push(
-       `<article class="card-template" id="card-template-urgent" data-id=${toDoList.id}>
-        <h2 class="card-title" id="card-title-urgent">${toDoList.title}</h2>
+   var toDoList = 
+       `<article class="card-template" id="card-template-urgent" data-id=${newToDoList.id}>
+        <h2 class="card-title" id="card-title-urgent">${newToDoList.title}</h2>
         <main class="card-main">
           <ul class="card-tasks">
-            <img src="images/checkbox.svg" class="card-checkbox-img" alt="empty checkbox">
-            <li class="card-task-list">
-            ${toDoList.task}</li>
+            ${appendTaskToCard(newToDoList)}
           </ul>
         </main>
         <footer class="card-footer" id="card-footer-urgent">
-          <div class="card-urgent-btn"${toDoList.urgency}>
+          <div class="card-urgent-btn"${newToDoList.urgency}>
             <img src="images/urgent.svg" class="footer-img" alt="urgency button">
             <p class="card-footer-text" id="card-footer-text-urgent">URGENT</p>
           </div>
@@ -180,18 +184,23 @@ function appendToDoListToDom(toDoListArray) {
           </div>
         </footer>
       </article>`
-    )
-      console.log("pokerface", cardsToAppend)
-      appendCardHelper(cardsToAppend); 
-  });
-};
 
-
-  function appendCardHelper(toDoListArray) {
-    toDoListArray.forEach(function(toDoList){
-        return cardDisplayArea.insertAdjacentHTML('beforeend', toDoList)
-    })    
+      cardDisplayArea.insertAdjacentHTML('beforeend', toDoList)
+      // appendCardHelper(cardsToAppend); 
   };
+
+
+
+  // function appendCardHelper(toDoListArray) {
+  //   toDoListArray.forEach(function(toDoList){
+  //       return cardDisplayArea.insertAdjacentHTML('beforeend', toDoList)
+  //   })    
+  // };
+
+
+
+
+
   
 //   var cardToAppend =
 //        `<article class="card-template" id="card-template-urgent" data-id=${toDoListArray.id}>
