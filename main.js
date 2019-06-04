@@ -29,7 +29,7 @@ var cardDeleteBtn = document.querySelector('.card-delete-btn');
 
 //task List Array 
 var taskListArray = [];
-var toDoListArray = [];
+var toDoListArray = JSON.parse(localStorage.getItem('toDoListArray')) || [];
 
 
 //Event Listeners
@@ -51,10 +51,28 @@ makeTaskListBtn.addEventListener('click', makeTaskList);
 
 function pageLoadHelper() {
   disableMakeTaskListBtn()
+  repopulateCardsinfo()
 };
 
  
-// };
+function repopulateCardsinfo() {
+  var existingCards = toDoListArray;
+  console.log("existingInfo", existingCards);
+  var freshCardsInfo = existingCards.map(function(cardInfo) {
+   return cardInfo = new ToDoList(cardInfo);
+
+  });
+    console.log("reload", freshCardsInfo)
+    toDoListArray = freshCardsInfo;
+    repopulateCards(toDoListArray);
+};
+
+function repopulateCards(toDoListArray) {
+  toDoListArray.forEach(function(cardInfo) {
+    appendToDoListToDom(cardInfo);
+  });
+};
+
   //check todolist array from local storage and reinstantiate that array
   //reappend cards to dom by passing the reinstatiated array info to createToDoList()
   //run hiddenMsgHelper()
@@ -150,7 +168,7 @@ function createNewToDoList() {
   toDoListArray.push(newToDoList);
   newToDoList.saveToStorage(toDoListArray)
   appendToDoListToDom(newToDoList)
-};
+}
 
 function appendTaskToCard(newToDoList) {
   var sortTasksList = '';
@@ -161,7 +179,7 @@ function appendTaskToCard(newToDoList) {
             ${newToDoList.tasks[i].taskBody}</li>`
             console.log("TASK", newToDoList.tasks[i].taskBody)
   } return sortTasksList;
-};
+}
 
 function appendToDoListToDom(newToDoList) {
   console.log("HIYO", toDoListArray)
