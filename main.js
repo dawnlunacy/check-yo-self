@@ -114,13 +114,9 @@ if (addPreviewTaskItems.innerHTML !== '' && taskTitleInput.value !== '') {
 };
 
 function makeTaskList() {
-    // tasksToObjects();
-    // var tasksToAppend = tasksToObjects();
-    // console.log("BOOTY", tasksToAppend);
     createNewToDoList() 
-    
-     //use that to pass that information to createNewToDoList
-      //use a forloop or forEach to loop through the array of objects and pull them out to pass them to the new instatiation ..//
+    taskTitleInput.value = '';
+    addPreviewTaskItems.innerHTML = '';
 }
 
 function tasksToObjects() {
@@ -133,41 +129,96 @@ function tasksToObjects() {
         checked: false
     }
     taskItems.push(taskItem);
-    console.log("global-variable", taskItems);
+    // console.log("global-variable", taskItems);
   });
+  console.log("item-variable", taskItems);
   return taskItems
+
   };
   
 
 function createNewToDoList() {
+  var thisListTitle = taskTitleInput.value;
+  console.log("tiittle", thisListTitle)
   var tasksToAppend = tasksToObjects();
   console.log("BOYA", tasksToAppend)
   var newToDoList = new ToDoList({
     id: Date.now(),
-    title: taskTitleInput.value,
+    title: thisListTitle,
     tasksArray: tasksToAppend,
     urgency: false
     });
-  console.log(newToDoList)
+  console.log("hiiii", newToDoList)
   toDoListArray.push(newToDoList);
   newToDoList.saveToStorage(toDoListArray)
-  //will need to clear the nav//
+  appendToDoListToDom(toDoListArray)
   //append card to dom//
 }
-// function appendToDoListToDom() {
 
+function appendToDoListToDom(toDoListArray) {
+  console.log("HIYO", toDoListArray)
+  var cardsToAppend = [];
+  toDoListArray.forEach(function(toDoList) {
+    cardsToAppend.push(
+       `<article class="card-template" id="card-template-urgent" data-id=${toDoList.id}>
+        <h2 class="card-title" id="card-title-urgent">${toDoList.title}</h2>
+        <main class="card-main">
+          <ul class="card-tasks">
+            <img src="images/checkbox.svg" class="card-checkbox-img" alt="empty checkbox">
+            <li class="card-task-list">
+            ${toDoList.task}</li>
+          </ul>
+        </main>
+        <footer class="card-footer" id="card-footer-urgent">
+          <div class="card-urgent-btn"${toDoList.urgency}>
+            <img src="images/urgent.svg" class="footer-img" alt="urgency button">
+            <p class="card-footer-text" id="card-footer-text-urgent">URGENT</p>
+          </div>
+          <div class="card-delete-btn">
+            <img src="images/delete.svg" class="footer-img">
+            <p class="card-footer-text" id="delete">DELETE</p>
+          </div>
+        </footer>
+      </article>`
+    )
+      console.log("pokerface", cardsToAppend)
+      appendCardHelper(cardsToAppend); 
+  });
+};
+
+
+  function appendCardHelper(toDoListArray) {
+    toDoListArray.forEach(function(toDoList){
+        return cardDisplayArea.insertAdjacentHTML('beforeend', toDoList)
+    })    
+  };
+  
+//   var cardToAppend =
+//        `<article class="card-template" id="card-template-urgent" data-id=${toDoListArray.id}>
+//         <h2 class="card-title" id="card-title-urgent">${toDoListArray.title}</h2>
+//         <main class="card-main">
+//           <ul class="card-tasks">
+//             <img src="images/checkbox.svg" class="card-checkbox-img" alt="empty checkbox">
+//             <li class="card-task-list">
+//             ${toDoListArray.tasks.forEach(function(task){return task[this.tasks.forEach(function(task){return task[this.tasks]})]})}</li>
+//           </ul>
+//         </main>
+//         <footer class="card-footer" id="card-footer-urgent">
+//           <div class="card-urgent-btn"${newToDoList.urgency}>
+//             <img src="images/urgent.svg" class="footer-img" alt="urgency button">
+//             <p class="card-footer-text" id="card-footer-text-urgent">URGENT</p>
+//           </div>
+//           <div class="card-delete-btn">
+//             <img src="images/delete.svg" class="footer-img">
+//             <p class="card-footer-text" id="delete">DELETE</p>
+//           </div>
+//         </footer>
+//       </article>`
+//       cardDisplayArea.insertAdjacentHTML('beforeend', cardToAppend )
 // }
 
 
 
-//   if (e.target('taskItemInput').value === '') {
-//     makeTaskListBtn.disabled = true;
-//     makeTaskListBtn.classList.add('disabled')
-//   } else {
-//     makeTaskListBtn.disabled = false;
-//     makeTaskListBtn.classList.remove('disabled')
-//   };
-// };
 
 
 
