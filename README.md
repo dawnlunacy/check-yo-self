@@ -26,5 +26,7 @@
     
     ## My Mobile Comp:
     
-    [screencapture-file-Users-lacy-rudd-turing-projects-mod-1-check-yo-self-index-html-2019-06-05-03_28_47.pdf](https://github.com/dawnlunacy/Pictures/files/3256517/screencapture-file-Users-lacy-rudd-turing-projects-mod-1-check-yo-self-index-html-2019-06-05-03_28_47.pdf)
+    ![screencapture-file-Users-lacy-rudd-turing-projects-mod-1-check-yo-self-index-html-2019-06-05-03_28_47.pdf](https://github.com/dawnlunacy/Pictures/files/3256517/screencapture-file-Users-lacy-rudd-turing-projects-mod-1-check-yo-self-index-html-2019-06-05-03_28_47.pdf)
+    
+    ![screencapture-file-Users-lacy-rudd-turing-projects-mod-1-check-yo-self-index-html-2019-06-05-03_29_29](https://user-images.githubusercontent.com/47537744/58946846-fc7b2c00-8743-11e9-8fa4-6ba88837fe0a.png)
     
