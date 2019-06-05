@@ -15,12 +15,11 @@ class ToDoList {
   };
 
   updateToDo() {
-    //(should update the todo's title and urgency)
 
   };
 
   updateTask() {
-    //(should update a task's content and if it has been completed)
+
   };
 };
 
