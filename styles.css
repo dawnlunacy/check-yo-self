@@ -4,7 +4,7 @@
 
 body {
   font-family:'Open Sans', sans-serif;
-  height: 105vh;
+  
 }
 
 header {
@@ -62,7 +62,7 @@ h1 {
 nav {
   background-color: #587A8A;
   border-right: 2px solid #3C6577;
-  height: auto;
+  min-height:1000px;
   width: 33.3%;
 }
 
@@ -107,7 +107,7 @@ nav {
   font-size: 18px;
   height: 50px;
   padding:10px;
-  width: 90%;
+  width: 95%;
 }
 
 .add-preview-task-item-btn {
@@ -128,7 +128,7 @@ nav {
 .preview-checkbox-img {
   width: 23px;
   height: 23px;
-  margin: 0px 10px 0px 20px;
+  margin: 5px 10px 0px 20px;
   color:#000;
 }
 
@@ -178,7 +178,7 @@ main {
 .card-display-area {
   background-color: #F3F6F7;
   column-gap: 30px;
-  columns: 2 250px;
+  columns: 2;
   height: auto;
   padding: 30px;
   width: 66.7%;
@@ -217,15 +217,15 @@ ul {
 }
 
 li {
-  margin-bottom: 5px;
+  margin-bottom: 25px;
   display: flex;
   line-height: 1.5;
 }
 
 .card-checkbox-img {
-  width: 20px;
-  height: 20px;
-  margin: 20px 5px 0px 10px;
+  width: 23px;
+  height: 23px;
+  margin: 4px 10px 20px 15px;
 }
 
 .card-task-list {

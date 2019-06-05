@@ -156,13 +156,12 @@ function createNewToDoList() {
   newToDoList.saveToStorage(toDoListArray)
   appendToDoListToDom(newToDoList)
 };
-
 function appendTaskToCard(newToDoList) {
   var sortTasksList = '';
   for (var i = 0; i < newToDoList.tasks.length; i++){
     sortTasksList += 
-            `<img src="images/checkbox.svg" class="card-checkbox-img" alt="empty checkbox">
-            <li class="card-task-list" data-id=${newToDoList.tasks[i].id}>
+            `<li class="card-task-list" data-id=${newToDoList.tasks[i].id}>
+              <img src="images/checkbox.svg" class="card-checkbox-img" alt="empty checkbox">
             ${newToDoList.tasks[i].taskBody}</li>`
             console.log("TASK", newToDoList.tasks[i].taskBody)
   } return sortTasksList;
