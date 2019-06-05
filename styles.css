@@ -61,7 +61,8 @@ h1 {
 nav {
   background-color: #587A8A;
   border-right: 2px solid #3C6577;
-  min-height: 1000px;
+  min-height: 1200px;
+  height:auto;
   width: 33.3%;
 }
 
@@ -326,10 +327,3 @@ li {
     margin-left: -20px;
     width: 109%;
   }
-
-
- 
-
-
-
-/*End Urgent Active */

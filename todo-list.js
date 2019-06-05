@@ -18,7 +18,8 @@ class ToDoList {
 
   };
 
-  updateTask() {
+  updateTask(taskObj) {
+    taskObj.checked = !taskObj.checked;
 
   };
 };

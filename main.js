@@ -32,6 +32,48 @@ addPreviewTaskItemContainer.addEventListener('click', deletePreviewTaskItemFromD
 taskItemInput.addEventListener('keyup', btnsHelper);
 taskTitleInput.addEventListener('keyup', btnsHelper);
 makeTaskListBtn.addEventListener('click', makeTaskList);
+cardDisplayArea.addEventListener('click', toggleCheckBox);
+
+
+
+
+function toggleCheckBox(e) {
+  if(e.target.classList.contains('card-checkbox-img')) {
+    var targetCard = findCardId(e);
+    var targetTaskId = findTaskIdFromArray(e);
+    var taskToSelect = findTask(targetTaskId, targetCard.tasks)
+    targetCard.updateTask(taskToSelect);
+    console.log("task", taskToSelect)
+  };
+};
+
+  function findCardId(e) {
+    var cardId = e.target.closest('article').getAttribute('data-id');
+    // console.log("HIIMMACARD", cardId);
+    var targetCard = findToDoCard(cardId);
+    return targetCard;
+  };
+
+  function findToDoCard(idOfCard) {
+    return toDoListArray.find(function(instanceOfCard) {
+      return instanceOfCard.id == idOfCard;
+    });
+  };
+
+  function findTaskIdFromArray(e) {
+    var taskId = e.target.closest('li').getAttribute('data-id');
+    console.log(e.target.closest('li'))
+      
+      return taskId;
+  };
+
+  function findTask(targetTaskId, targetCardTaskArray) {
+    return targetCardTaskArray.find(function(task) {
+      // console.log("taskYouClickedId", task.taskId)
+      return task.taskId == targetTaskId;
+    })
+
+  }
 
 
 
@@ -42,11 +84,11 @@ function pageLoadHelper() {
 
 function repopulateCardsinfo() {
   var existingCards = toDoListArray;
-  console.log("existingInfo", existingCards);
+  // console.log("existingInfo", existingCards);
   var freshCardsInfo = existingCards.map(function(cardInfo) {
     return cardInfo = new ToDoList(cardInfo);
   });
-    console.log("reload", freshCardsInfo)
+    // console.log("reload", freshCardsInfo)
     toDoListArray = freshCardsInfo;
     repopulateCards(toDoListArray);
 };
@@ -87,8 +129,6 @@ function disableAddPreviewTaskBtn() {
     addPreviewTaskItemBtn.classList.add('disabled')
     addPreviewTaskItemBtnImg.classList.add('disabled')
   };
-  disableMakeTaskListBtn();
-  enableClearAllBtn();
 };
 
 function disableMakeTaskListBtn() {
@@ -127,48 +167,51 @@ function makeTaskList() {
 
 function tasksToObjects() {
   var tasks = document.querySelectorAll('.preview-task-item')
+  console.log(tasks)
   var taskItems = [];
   tasks.forEach(function(task) {
     var taskItem = {
-          taskID: task.dataset.id,
+          taskId: task.dataset.id,
           taskBody: task.innerText,
           checked: false
     }
-    taskItems.push(taskItem);
+  taskItems.push(taskItem);
   });
-  console.log("item-variable", taskItems);
+  // console.log("item-variable", taskItems);
   return taskItems
 };
   
 function createNewToDoList() {
   var thisListTitle = taskTitleInput.value;
-  console.log("tiittle", thisListTitle)
+  // console.log("tiittle", thisListTitle)
   var tasksToAppend = tasksToObjects();
-  console.log("BOYA", tasksToAppend)
+  // console.log("BOYA", tasksToAppend)
   var newToDoList = new ToDoList({
     id: Date.now(),
     title: thisListTitle,
     tasks: tasksToAppend,
     urgency: false
     });
-  console.log("hiiii", newToDoList)
+  // console.log("hiiii", newToDoList)
   toDoListArray.push(newToDoList);
   newToDoList.saveToStorage(toDoListArray)
   appendToDoListToDom(newToDoList)
+
 };
 function appendTaskToCard(newToDoList) {
   var sortTasksList = '';
   for (var i = 0; i < newToDoList.tasks.length; i++){
+    console.log(newToDoList.tasks[i].taskId)
     sortTasksList += 
-            `<li class="card-task-list" data-id=${newToDoList.tasks[i].id}>
+            `<li class="card-task-list" data-id=${newToDoList.tasks[i].taskId}>
               <img src="images/checkbox.svg" class="card-checkbox-img" alt="empty checkbox">
             ${newToDoList.tasks[i].taskBody}</li>`
-            console.log("TASK", newToDoList.tasks[i].taskBody)
+            // console.log("TASK", newToDoList.tasks[i].taskBody)
   } return sortTasksList;
 };
 
 function appendToDoListToDom(newToDoList) {
-  console.log("HIYO", toDoListArray)
+  // console.log("HIYO", toDoListArray)
    var toDoList = 
        `<article class="card-template" id="card-template-urgent" data-id=${newToDoList.id}>
         <h2 class="card-title" id="card-title-urgent">${newToDoList.title}</h2>
