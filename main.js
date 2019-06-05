@@ -36,8 +36,8 @@ makeTaskListBtn.addEventListener('click', makeTaskList);
 
 
 function pageLoadHelper() {
-  disableMakeTaskListBtn()
-  repopulateCardsinfo()
+  disableMakeTaskListBtn();
+  repopulateCardsinfo();
 };
 
 function repopulateCardsinfo() {
@@ -74,7 +74,7 @@ function deletePreviewTaskItemFromDom(e) {
 function btnsHelper() {
   disableAddPreviewTaskBtn();
   disableMakeTaskListBtn();
-  enableClearAllBtn()
+  enableClearAllBtn();
 };
 
 function disableAddPreviewTaskBtn() {
@@ -96,8 +96,8 @@ function disableMakeTaskListBtn() {
     makeTaskListBtn.disabled = false;
     makeTaskListBtn.classList.remove('disabled')
   } else {
-    clearAllBtn.disabled = true;
-    clearAllBtn.classList.add('disabled')
+    makeTaskListBtn.disabled = true;
+    makeTaskListBtn.classList.add('disabled')
   };
 };
 
@@ -121,6 +121,7 @@ function clearAllBtnHelper() {
 function makeTaskList() {
     createNewToDoList(); 
     clearAllBtnHelper();
+    disableMakeTaskListBtn();
     disableClearAllBtn();
 };
 

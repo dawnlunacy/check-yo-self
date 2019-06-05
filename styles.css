@@ -4,7 +4,7 @@
 
 body {
   font-family:'Open Sans', sans-serif;
-  height: 100vh;
+  height: 105vh;
 }
 
 header {
@@ -189,11 +189,12 @@ main {
   border: 2px solid #C7D3D8;
   display: inline-block;
   margin: 0 30px 30px 0;
-  max-width:350px;
+  width: 100%;
   min-height: 200px;
   min-width: 250px;
   padding: 10px 5px 5px 5px;
   width: 100%;
+  break-inside:avoid;
 }
 
 .card-title {
@@ -224,18 +225,15 @@ li {
 .card-checkbox-img {
   width: 20px;
   height: 20px;
-  display: inline;
   margin: 20px 5px 0px 10px;
 }
 
 .card-task-list {
   font-family: 'Open-Sans', sans-serif;
   color: #1F1F3D;
-  display: inline;
   font-weight: 400;
   font-size: 22px;
   width: 100%;
-  word-wrap: break-word;
 }
 
 .card-footer {
@@ -272,9 +270,13 @@ li {
   margin-left: 24%;
 }
 
+.disabled {
+  background-color: #59597A;
+}
+
 /* Urgent Active */
 
-#card-template-urgent {
+/*#card-template-urgent {
   background-color:#FFE79D;
   border: 2px solid #FEC61B;
 }
@@ -289,10 +291,8 @@ li {
 
 #card-footer-text-urgent {
   color:#B7452D;
-}
+}*/
 
-.disabled {
-  background-color: #59597A;
-}
+
 
 /*End Urgent Active */
