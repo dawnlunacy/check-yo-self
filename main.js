@@ -40,7 +40,7 @@ addPreviewTaskItemContainer.addEventListener('click', deletePreviewTaskItemFromD
 taskItemInput.addEventListener('keyup', disableAddPreviewTaskBtn);
 taskTitleInput.addEventListener('keyup', disableMakeTaskListBtn);
 makeTaskListBtn.addEventListener('click', makeTaskList);
-
+clearAllBtn.addEventListener('click', clearAllBtnHelper);
 // taskItemInput.addEventListener('keyup', disableAddPreviewTaskBtn)
 
 
@@ -130,6 +130,21 @@ if (addPreviewTaskItems.innerHTML !== '' && taskTitleInput.value !== '') {
     makeTaskListBtn.classList.add('disabled')
   };
 };
+
+function clearAllBtnHelper() {
+if (addPreviewTaskItems.innerHTML !== '' || taskTitleInput.value !== '') {
+    clearAllBtn.disabled = false;
+    clearAllBtn.classList.remove('disabled')
+  } else if (taskTitleInput.value !== '') {
+    clearAllBtn.disabled = false;
+    clearAllBtn.classList.remove('disabled')
+  } else {
+    clearAllBtn.disabled = true;
+    clearAllBtn.classList.add('disabled')
+
+  }
+};
+
 
 function makeTaskList() {
     createNewToDoList() 
