@@ -41,18 +41,25 @@ function toggleCheckBox(e) {
   if(e.target.classList.contains('card-checkbox-img')) {
     var targetCard = findCardId(e);
     var targetTaskId = findTaskIdFromArray(e);
-    var taskToSelect = findTask(targetTaskId, targetCard.tasks)
-    targetCard.updateTask(taskToSelect);
-    toggleCheckBoxOnDom(e, taskToSelect);
+    var taskToSelectObj = findTask(targetTaskId, targetCard.tasks);
+    targetCard.updateTask(taskToSelectObj);
+    toggleCheckBoxOnDom(e, taskToSelectObj);
   };
 };
 
-function toggleCheckBoxOnDom(e, taskToSelect) {
-  if(taskToSelect.checked === true) {
+  function toggleCheckBoxStyle(e) {
+    var checkBoxText = e.target.closest('li').querySelector('.task-list-items');
+    checkBoxText.classList.toggle('.check-box-text-active');
+    checkBoxText.classList.toggle('.check-box-text-inactive');
+  };
+
+function toggleCheckBoxOnDom(e, taskToSelectObj) {
+  if(taskToSelectObj.checked === true) {
     e.target.setAttribute('src', 'images/checkbox-active.svg');
   } else {
     e.target.setAttribute('src', 'images/checkbox.svg');
   };
+  toggleCheckBoxStyle(e);
 };
 
   function findCardId(e) {
@@ -71,7 +78,6 @@ function toggleCheckBoxOnDom(e, taskToSelect) {
   function findTaskIdFromArray(e) {
     var taskId = e.target.closest('li').getAttribute('data-id');
     console.log(e.target.closest('li'))
-      
       return taskId;
   };
 
@@ -79,11 +85,8 @@ function toggleCheckBoxOnDom(e, taskToSelect) {
     return targetCardTaskArray.find(function(task) {
       // console.log("taskYouClickedId", task.taskId)
       return task.taskId == targetTaskId;
-    })
-
-  }
-
-
+    });
+  };
 
 function pageLoadHelper() {
   disableMakeTaskListBtn();
@@ -207,16 +210,20 @@ function createNewToDoList() {
 function appendTaskToCard(newToDoList) {
   var sortTasksList = '';
   for (var i = 0; i < newToDoList.tasks.length; i++){
-    console.log(newToDoList.tasks[i].taskId)
     if(newToDoList.tasks[i].checked === true){
-      checkBoxImg = "checkbox-active.svg"
+      checkBoxImg = "checkbox-active.svg";
+      checkBoxText = "check-box-text-active";
     } else {
       checkBoxImg = "checkbox.svg"
+      checkBoxText = "check-box-text-inactive"
     }
     sortTasksList += 
-            `<li class="card-task-list" data-id=${newToDoList.tasks[i].taskId}>
+           `<li class="card-task-list" data-id=${newToDoList.tasks[i].taskId}>
               <img src="images/${checkBoxImg}" class="card-checkbox-img" alt="empty checkbox">
-            ${newToDoList.tasks[i].taskBody}</li>`
+              <p class="task-list-items ${checkBoxText}">
+            ${newToDoList.tasks[i].taskBody}
+              </p>
+            </li>`
             // console.log("TASK", newToDoList.tasks[i].taskBody)
   } return sortTasksList;
 };

@@ -221,12 +221,18 @@ li {
   margin-bottom: 25px;
 }
 
+.check-box-text-active {
+  font-style:italic;
+  color:#3C6577;
+}
+
 .card-checkbox-img {
   height: 23px;
   margin: 4px 10px 20px 15px;
   width: 23px;
 }
 
+.check-box-text-inactive
 .card-task-list {
   color: #1F1F3D;
   font-family: 'Open-Sans', sans-serif;
