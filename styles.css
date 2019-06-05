@@ -219,6 +219,7 @@ li {
   display: flex;
   line-height: 1.5;
   margin-bottom: 25px;
+  font-size: 22px;
 }
 
 .check-box-text-active {
@@ -236,7 +237,6 @@ li {
 .card-task-list {
   color: #1F1F3D;
   font-family: 'Open-Sans', sans-serif;
-  font-size: 22px;
   font-weight: 400;
   width: 100%;
 }
