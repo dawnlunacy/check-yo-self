@@ -25,40 +25,86 @@
           <label for="task-title-input" class="task-title-label">Task Title</label>
           <input type="text" class="task-title-input" aria-required="true">
         </form>
-        <ul class="preview-task-item">
+        <div class="preview-task-items-container">
+        <ul class="preview-task-items">
         </ul>
+        </div>
         <form class="task-item-form">
           <label for="task-item-input" class="task-item-label">Task Item</label>
           <div class="add-btn-container">
             <input type="text" class="task-item-input" aria-required="true">
-            <button type="submit" class="add-task-item-btn">
-              <img src="images/plus.svg" class="add-task-item-img">
+            <button type="submit" disabled class="add-preview-task-item-btn disabled">
+              <img src="images/plus.svg" class="add-preview-task-item-img disabled">
             </button>
           </div>
         </form>
-        <button type="submit" class="nav-btn" id="make-task-list-btn" disabled>Make Task List</button>
+        <button type="submit" class="nav-btn disabled" id="make-task-list-btn" disabled>Make Task List</button>
         <button type="submit" class="nav-btn" id="clear-all-btn" disabled>Clear All</button>
       </section>
      <button type="submit" class="nav-btn" id="filter-btn" disabled>Filter by Urgency</button>
     </nav>
     <section class="card-display-area">
-      <article class="card-template" id="card-template-urgent">
+      <p class="hidden-msg"></p>
+      
+
+ <!--      <article class="card-template" id="card-template-urgent">
         <h2 class="card-title" id="card-title-urgent">`${title}`</h2>
         <main class="card-main">
-          <ul class="card-task-list"> `${task-list}`</ul>
+          <ul class="card-tasks">
+            <img src="images/checkbox.svg" class="card-checkbox-img" alt="empty checkbox">
+            <li class="card-task-list">`${task-list}`</li>
+          </ul>
         </main>
         <footer class="card-footer" id="card-footer-urgent">
           <div class="card-urgent-btn">
-          <img src="images/urgent.svg" class="footer-img">
-          <p class="card-footer-text" id="card-footer-text-urgent">URGENT</p>
-        </div>
-        <div class="card-delete-btn">
-          <img src="images/delete.svg" class="footer-img">
-          <p class="card-footer-text" id="delete">DELETE</p>
-        </div>
-      </footer>
-    </article>
-         <article class="card-template">
+            <img src="images/urgent.svg" class="footer-img" alt="urgency button">
+            <p class="card-footer-text" id="card-footer-text-urgent">URGENT</p>
+          </div>
+          <div class="card-delete-btn">
+            <img src="images/delete.svg" class="footer-img">
+            <p class="card-footer-text" id="delete">DELETE</p>
+          </div>
+        </footer>
+      </article> -->
+
+     <!--      <article class="card-template" id="card-template-urgent">
+        <h2 class="card-title" id="card-title-urgent">`${title}`</h2>
+        <main class="card-main">
+          <ul class="card-tasks">
+            <img src="images/checkbox.svg" class="card-checkbox-img" alt="empty checkbox">
+            <li class="card-task-list">`TESTING This is a test I need to sleep and sleep and sleep and code`</li>
+          </ul>
+        </main>
+        <footer class="card-footer" id="card-footer-urgent">
+          <div class="card-urgent-btn">
+            <img src="images/urgent.svg" class="footer-img" alt="urgency button">
+            <p class="card-footer-text" id="card-footer-text-urgent">URGENT</p>
+          </div>
+          <div class="card-delete-btn">
+            <img src="images/delete.svg" class="footer-img">
+            <p class="card-footer-text" id="delete">DELETE</p>
+          </div>
+        </footer>
+      </article> -->
+
+    </section>
+  </main>
+</body>
+<script type="text/javascript" src="todo-list.js"></script>
+<script type="text/javascript" src="main.js"></script>
+</html>
+
+
+
+
+
+
+
+
+
+
+<!-- 
+    <article class="card-template">
         <h2 class="card-title">`${title}`</h2>
         <main class="card-main">
           <ul class="card-task-list">`${task-list}`</ul>
@@ -74,10 +120,14 @@
         </div>
       </footer>
     </article>
+
+
        <article class="card-template">
         <h2 class="card-title">`YAHOOO Almost done for the day!`</h2>
         <main class="card-main">
-          <ul class="card-task-list"> I Love LANA ! I AM SO HAPPY YOU ARE HERE! I ant to see Appollo!</ul>
+          <ul class="card-task-list">
+            <li> I Love LANA ! I AM SO HAPPY YOU EXIST! I miss Appollo!<li>
+          </ul>
         </main>
         <footer class="card-footer">
           <div class="card-urgent-btn">
@@ -95,7 +145,7 @@
 </body>
 <script type="text/javascript" src="todo-list.js"></script>
 <script type="text/javascript" src="main.js"></script>
-</html>
+</html> -->
 
 
 

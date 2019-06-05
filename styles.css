@@ -110,7 +110,7 @@ nav {
   width: 90%;
 }
 
-.add-task-item-btn {
+.add-preview-task-item-btn {
   background-color: #1F1F3D;
   border-radius: 0 2.5px 2.5px 0;
   border: 2px #1F1F3D;
@@ -119,17 +119,41 @@ nav {
   width: 50px;
 }
 
+.preview-task-items-container{
+  display:flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.preview-checkbox-img {
+  width: 23px;
+  height: 23px;
+  margin: 0px 10px 0px 20px;
+  color:#000;
+}
+
+.preview-task-items {
+  padding:1%;
+}
+
+.preview-task-item {
+  color: #F3F6F7;
+  font-family:'Open Sans', sans-serif;
+  font-size: 20px;
+  word-wrap: normal;
+}
+
 .nav-btn {
   background-color: #1F1F3D;
-  border-radius:2.5px;
+  border-radius: 2.5px;
   border: #1F1F3D;
-  color:#FFF;
+  color: #FFF;
   font-family:'Open Sans', sans-serif;
-  font-size:20px;
-  font-weight:600;
-  height:50px;
-  margin:2%;
-  width:96%;
+  font-size: 20px;
+  font-weight: 600;
+  height: 50px;
+  margin: 2%;
+  width: 96%;
 }
 
 .task-form-top-section {
@@ -186,13 +210,32 @@ main {
   min-height: 125px;
 }
 
+ul {
+  width: 100%;
+  margin-top: 15px;
+}
+
+li {
+  margin-bottom: 5px;
+  display: flex;
+  line-height: 1.5;
+}
+
+.card-checkbox-img {
+  width: 20px;
+  height: 20px;
+  display: inline;
+  margin: 20px 5px 0px 10px;
+}
+
 .card-task-list {
   font-family: 'Open-Sans', sans-serif;
   color: #1F1F3D;
+  display: inline;
   font-weight: 400;
-  font-size:20px;
-  padding:20px 10px;
-  width:100%;
+  font-size: 22px;
+  width: 100%;
+  word-wrap: break-word;
 }
 
 .card-footer {
@@ -246,6 +289,10 @@ main {
 
 #card-footer-text-urgent {
   color:#B7452D;
+}
+
+.disabled {
+  background-color: #59597A;
 }
 
 /*End Urgent Active */
