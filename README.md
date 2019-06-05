@@ -25,9 +25,6 @@
 <img width="535" alt="Screen Shot 2019-06-05 at 3 30 30 AM" src="https://user-images.githubusercontent.com/47537744/58947420-23862d80-8745-11e9-841d-ac628e9ed954.png">
     
     
-   ## My Mobile Comp:
-    
-   ![screencapture-file-Users-lacy-rudd-turing-projects-mod-1-check-yo-self-index-html-2019-06-05-03_28_47.pdf](https://github.com/dawnlunacy/Pictures/files/3256517/screencapture-file-Users-lacy-rudd-turing-projects-mod-1-check-yo-self-index-html-2019-06-05-03_28_47.pdf)
-    
+   ## My Mobile Comp:    
    ![screencapture-file-Users-lacy-rudd-turing-projects-mod-1-check-yo-self-index-html-2019-06-05-03_29_29](https://user-images.githubusercontent.com/47537744/58946846-fc7b2c00-8743-11e9-8fa4-6ba88837fe0a.png)
     
