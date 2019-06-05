@@ -3,7 +3,7 @@
 ## Learning Goals
 
 
-   -Solidify and demonstrate your use of:<br>
+   ###Solidify and demonstrate your use of:<br>
         -semantic HTML<br> 
         -clean & organized CSS styles<br>
         -DRY JavaScript<br>
