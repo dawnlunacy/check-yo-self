@@ -86,8 +86,6 @@ function disableAddPreviewTaskBtn() {
     addPreviewTaskItemBtn.classList.add('disabled');
     addPreviewTaskItemBtnImg.classList.add('disabled');
   };
-  disableMakeTaskListBtn();
-  enableClearAllBtn();
 };
 
 function disableMakeTaskListBtn() {
