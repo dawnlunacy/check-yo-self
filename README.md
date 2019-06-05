@@ -1,8 +1,8 @@
 # check-yo-self
 
-##Learning Goals
+## Learning Goals
 
-    * Solidify and demonstrate your use of:
+    *Solidify and demonstrate your use of:
         * semantic HTML
         * clean & organized CSS styles
         * DRY JavaScript
