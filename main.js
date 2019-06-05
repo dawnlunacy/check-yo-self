@@ -47,12 +47,6 @@ function toggleCheckBox(e) {
   };
 };
 
-  function toggleCheckBoxStyle(e) {
-    var checkBoxText = e.target.closest('li').querySelector('.task-list-items');
-    checkBoxText.classList.toggle('.check-box-text-active');
-    checkBoxText.classList.toggle('.check-box-text-inactive');
-  };
-
 function toggleCheckBoxOnDom(e, taskToSelectObj) {
   if(taskToSelectObj.checked === true) {
     e.target.setAttribute('src', 'images/checkbox-active.svg');
@@ -61,6 +55,13 @@ function toggleCheckBoxOnDom(e, taskToSelectObj) {
   };
   toggleCheckBoxStyle(e);
 };
+
+  function toggleCheckBoxStyle(e) {
+    var checkBoxText = e.target.closest('li').querySelector('.task-list-items');
+    checkBoxText.classList.toggle('check-box-text-active');
+    checkBoxText.classList.toggle('check-box-text-inactive');
+    console.log("1", checkBoxText)
+  };
 
   function findCardId(e) {
     var cardId = e.target.closest('article').getAttribute('data-id');
@@ -117,7 +118,7 @@ function previewTaskItemHelper(e) {
 };
 
 function deletePreviewTaskItemFromDom(e) {
-  if(e.target.closest('.preview-checkbox-img')) {
+  if (e.target.closest('.preview-checkbox-img')) {
    e.target.closest('.preview-task-item').remove()
   };
 };

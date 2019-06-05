@@ -222,8 +222,8 @@ li {
 }
 
 .check-box-text-active {
-  font-style:italic;
-  color:#3C6577;
+  color: #3C6577;
+  font-style: italic;
 }
 
 .card-checkbox-img {
