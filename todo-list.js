@@ -20,7 +20,7 @@ class ToDoList {
 
   updateTask(taskObj) {
     taskObj.checked = !taskObj.checked;
-
+    this.saveToStorage(toDoListArray);
   };
 };
 
