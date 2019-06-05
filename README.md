@@ -2,9 +2,9 @@
 
 ## Learning Goals
 
-    - Solidify and demonstrate your use of:
-        - semantic HTML
-        - clean & organized CSS styles
+    * Solidify and demonstrate your use of:
+        * semantic HTML
+        * clean & organized CSS styles
         - DRY JavaScript
         - localStorage to persist data
     - Iterate through/filter dom elements using for loops/array prototype methods
