@@ -161,7 +161,7 @@ function createNewToDoList() {
   var newToDoList = new ToDoList({
     id: Date.now(),
     title: thisListTitle,
-    tasksArray: tasksToAppend,
+    tasks: tasksToAppend,
     urgency: false
     });
   console.log("hiiii", newToDoList)
