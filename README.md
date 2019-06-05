@@ -3,14 +3,14 @@
 ## Learning Goals
 
 
-   ### Solidify and demonstrate your use of:<br>
-        -semantic HTML<br> 
-        -clean & organized CSS styles<br>
-        -DRY JavaScript<br>
-        -localStorage to persist data<br<
-   -Iterate through/filter dom elements using for loops/array prototype methods<br>
-    -Understand the difference between the data model and how the data is displayed on the DOM<br>
-    -Ability to match/recreate a UI and create a great UX<br>
+   ### Solidify and demonstrate your use of:
+       -semantic HTML
+        -clean & organized CSS styles
+        -DRY JavaScript
+        -localStorage to persist data
+        -Iterate through/filter dom elements using for loops/array prototype methods
+        -Understand the difference between the data model and how the data is displayed on the DOM
+         -Ability to match/recreate a UI and create a great UX
     
    ## Desktop Comp:
    <img width="535" alt="Screen Shot 2019-06-05 at 3 30 30 AM" src="https://user-images.githubusercontent.com/47537744/58947223-bbcfe280-8744-11e9-9bca-d647d3cf1ba5.png">
