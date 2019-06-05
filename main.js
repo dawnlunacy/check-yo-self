@@ -13,8 +13,6 @@ var hiddenMsg = document.querySelector('.hidden-msg');
 var cardTemplate = document.querySelector('.card-template');
 
 
-
-
 var toDoListArray = JSON.parse(localStorage.getItem('toDoListArray')) || [];
 
 
@@ -30,7 +28,7 @@ makeTaskListBtn.addEventListener('click', makeTaskList);
 function pageLoadHelper() {
   disableMakeTaskListBtn();
   repopulateCardsinfo();
-  toggleHiddenMsg()
+  toggleHiddenMsg();
 };
 
 function toggleHiddenMsg() {
@@ -39,7 +37,7 @@ function toggleHiddenMsg() {
     hiddenMsg.classList.remove('hidden');
     } else {
       hiddenMsg.innerText = " ";
-      hiddenMsg.classList.add('hidden')
+      hiddenMsg.classList.add('hidden');
     };
 };
 
@@ -196,5 +194,5 @@ function appendPreviewTaskItem(id, task) {
       </li>`
     addPreviewTaskItems.insertAdjacentHTML('beforeend', previewToAppend);
     taskItemInput.value = '';
-    disableAddPreviewTaskBtn()
+    disableAddPreviewTaskBtn();
 };
