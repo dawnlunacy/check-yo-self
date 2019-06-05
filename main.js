@@ -8,18 +8,11 @@ var addPreviewTaskItemContainer = document.querySelector('.preview-task-items-co
 var addPreviewTaskItems = document.querySelector('.preview-task-items')
 var makeTaskListBtn = document.getElementById('make-task-list-btn');
 var clearAllBtn = document.getElementById('clear-all-btn');
-var filterByUrgencyBtn = document.getElementById('filter-btn');
 var cardDisplayArea = document.querySelector('.card-display-area');
 var hiddenMsg = document.querySelector('.hidden-msg');
 var cardTemplate = document.querySelector('.card-template');
-var cardTemplateUrgent = document.getElementById('card-template-urgent');
-var cardTitle = document.querySelector('.card-title');
-var cardTitleUrgent = document.getElementById('card-title-urgent');
-var cardMain = document.querySelector('.card-main');
-var cardTaskList = document.querySelector('card-task-list');
-var cardFooter = document.querySelector('.card-footer');
-var cardUrgentBtn = document.querySelector('.card-urgent-btn');
-var cardDeleteBtn = document.querySelector('.card-delete-btn');
+
+
 
 
 var toDoListArray = JSON.parse(localStorage.getItem('toDoListArray')) || [];
@@ -37,6 +30,17 @@ makeTaskListBtn.addEventListener('click', makeTaskList);
 function pageLoadHelper() {
   disableMakeTaskListBtn();
   repopulateCardsinfo();
+  toggleHiddenMsg()
+};
+
+function toggleHiddenMsg() {
+  if (toDoListArray.length === 0) {
+    hiddenMsg.innerText = "Keeping track of all of your ToDos can be a tricky task. Enter a list to be accomplished on the left, and give it a title to get started!";
+    hiddenMsg.classList.remove('hidden');
+    } else {
+      hiddenMsg.innerText = " ";
+      hiddenMsg.classList.add('hidden')
+    };
 };
 
 function repopulateCardsinfo() {
@@ -120,6 +124,7 @@ function makeTaskList() {
     clearAllBtnHelper();
     disableMakeTaskListBtn();
     disableClearAllBtn();
+    toggleHiddenMsg()
 };
 
 function tasksToObjects() {
