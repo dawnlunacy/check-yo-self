@@ -3,7 +3,7 @@ class ToDoList {
     this.id = obj.id;
     this.title = obj.title;
     this.tasks = obj.tasks || [];
-    this.urgency = obj.urgency || false; 
+    this.urgency = obj.urgency; 
   };
 
   saveToStorage(ToDoLists) {
@@ -17,6 +17,9 @@ class ToDoList {
   updateToDo() {
     this.urgency = !this.urgency;
     this.saveToStorage(toDoListArray);
+
+  
+
     return "YOU MADE IT"
   };
 

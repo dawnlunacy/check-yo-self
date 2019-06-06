@@ -41,10 +41,9 @@ function toggleCheckBox(e) {
     var targetCard = findCardId(e);
     var targetTaskId = findTaskIdFromArray(e);
     var targetCardIndex = findCardIndex(targetCard.id);
-    console.log("TargetBiotch", targetCardIndex);
+    var targetTaskArray = targetCard.tasks;
     var taskToSelectObj = findTask(targetTaskId, targetCard.tasks);
     targetCard.updateTask(taskToSelectObj);
-    console.log("hello", taskToSelectObj);
     toggleCheckBoxOnDom(e, taskToSelectObj);
   };
 };
@@ -201,7 +200,7 @@ function createNewToDoList() {
     id: Date.now(),
     title: thisListTitle,
     tasks: tasksToAppend,
-    urgency: false
+    urgency: urgency || false
     });
   toDoListArray.push(newToDoList);
   newToDoList.saveToStorage(toDoListArray)
@@ -271,9 +270,7 @@ function appendPreviewTaskItem(id, task) {
 function toggleUrgency(e) {
   if (e.target.classList.contains('card-urgent-btn') || e.target.classList.contains('card-urgent-btn-img')) {
     var targetCard = findCardId(e);
-    (console.log("targetCard", targetCard))
     targetCard.updateToDo();
-    console.log('urgency', targetCard.updateToDo());
     var urgencyImg = targetCard.urgency ? 'images/urgent-active.svg' : 'images/urgent.svg';
     e.target.setAttribute('src', urgencyImg);
     toggleUrgencyStyle(e, targetCard);
