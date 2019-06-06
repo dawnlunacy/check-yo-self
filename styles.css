@@ -210,6 +210,26 @@ main {
   min-height: 125px;
 }
 
+.hidden-msg {
+  background-color: #F9FDFF;
+  border: 2px dashed #C7D3D8;
+  break-inside:avoid;
+  color: #59597A;
+  display: inline-block;
+  font-family: 'Open-Sans', sans-serif;
+  font-size: 24px;
+  line-height: 1.5;
+  margin: 0 30px 30px 0;
+  min-height: 200px;
+  min-width: 250px;
+  padding: 10px 5px 5px 5px;
+  width: 100%;
+}
+
+.hidden {
+  display: none;
+}
+
 ul {
   margin-top: 15px;
   width: 100%;
