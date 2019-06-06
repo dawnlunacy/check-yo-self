@@ -42,7 +42,7 @@ function toggleCheckBox(e) {
     var targetTaskId = findTaskIdFromArray(e);
     var taskToSelectObj = findTask(targetTaskId, targetCard.tasks);
     targetCard.updateTask(taskToSelectObj);
-    ("hello", taskToSelectObj);
+    console.log("hello", taskToSelectObj);
     toggleCheckBoxOnDom(e, taskToSelectObj);
   };
 };
