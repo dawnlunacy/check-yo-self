@@ -40,6 +40,8 @@ function toggleCheckBox(e) {
   if(e.target.classList.contains('card-checkbox-img')) {
     var targetCard = findCardId(e);
     var targetTaskId = findTaskIdFromArray(e);
+    var targetCardIndex = findCardIndex(targetCard.id);
+    console.log("TargetBiotch", targetCardIndex);
     var taskToSelectObj = findTask(targetTaskId, targetCard.tasks);
     targetCard.updateTask(taskToSelectObj);
     console.log("hello", taskToSelectObj);
@@ -84,6 +86,13 @@ function findTaskIdFromArray(e) {
       return task.taskId == targetTaskId;
     });
   };
+
+  function findCardIndex(targetCard) {
+    return toDoListArray.findIndex(function(toDo) {
+      return toDo.id === parseInt(targetCard);
+    });
+  };
+  
 
 function pageLoadHelper() {
   disableMakeTaskListBtn();
@@ -261,11 +270,13 @@ function appendPreviewTaskItem(id, task) {
 
 function toggleUrgency(e) {
   if (e.target.classList.contains('card-urgent-btn') || e.target.classList.contains('card-urgent-btn-img')) {
-    var targetToDoCard = findCardId(e);
-    targetToDoCard.updateToDo();
-    var urgencyImg = targetToDoCard ? 'images/urgent-active.svg' : 'images/urgent.svg';
+    var targetCard = findCardId(e);
+    (console.log("targetCard", targetCard))
+    targetCard.updateToDo();
+    console.log('urgency', targetCard.updateToDo());
+    var urgencyImg = targetCard.urgency ? 'images/urgent-active.svg' : 'images/urgent.svg';
     e.target.setAttribute('src', urgencyImg);
-    toggleUrgencyStyle(e, targetToDoCard);
+    toggleUrgencyStyle(e, targetCard);
   };
 };
 
