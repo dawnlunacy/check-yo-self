@@ -56,35 +56,31 @@ function toggleCheckBoxOnDom(e, taskToSelectObj) {
   toggleCheckBoxStyle(e);
 };
 
-  function toggleCheckBoxStyle(e) {
-    var checkBoxText = e.target.closest('li').querySelector('.task-list-items');
-    checkBoxText.classList.toggle('check-box-text-active');
-    checkBoxText.classList.toggle('check-box-text-inactive');
-    console.log("1", checkBoxText)
+function toggleCheckBoxStyle(e) {
+  var checkBoxText = e.target.closest('li').querySelector('.task-list-items');
+  checkBoxText.classList.toggle('check-box-text-active');
+  checkBoxText.classList.toggle('check-box-text-inactive');
   };
 
-  function findCardId(e) {
-    var cardId = e.target.closest('article').getAttribute('data-id');
-    // console.log("HIIMMACARD", cardId);
-    var targetCard = findToDoCard(cardId);
+function findCardId(e) {
+  var cardId = e.target.closest('article').getAttribute('data-id');
+  var targetCard = findToDoCard(cardId);
     return targetCard;
   };
 
-  function findToDoCard(idOfCard) {
-    return toDoListArray.find(function(instanceOfCard) {
-      return instanceOfCard.id == idOfCard;
+function findToDoCard(idOfCard) {
+  return toDoListArray.find(function(instanceOfCard) {
+    return instanceOfCard.id == idOfCard;
     });
   };
 
-  function findTaskIdFromArray(e) {
-    var taskId = e.target.closest('li').getAttribute('data-id');
-    console.log(e.target.closest('li'))
-      return taskId;
+function findTaskIdFromArray(e) {
+  var taskId = e.target.closest('li').getAttribute('data-id');
+    return taskId;
   };
 
   function findTask(targetTaskId, targetCardTaskArray) {
     return targetCardTaskArray.find(function(task) {
-      // console.log("taskYouClickedId", task.taskId)
       return task.taskId == targetTaskId;
     });
   };
@@ -176,8 +172,7 @@ function makeTaskList() {
 };
 
 function tasksToObjects() {
-  var tasks = document.querySelectorAll('.preview-task-item')
-  console.log(tasks)
+  var tasks = document.querySelectorAll('.preview-task-item');
   var taskItems = [];
   tasks.forEach(function(task) {
     var taskItem = {
@@ -187,22 +182,18 @@ function tasksToObjects() {
     }
   taskItems.push(taskItem);
   });
-  // console.log("item-variable", taskItems);
   return taskItems
 };
   
 function createNewToDoList() {
   var thisListTitle = taskTitleInput.value;
-  // console.log("tiittle", thisListTitle)
   var tasksToAppend = tasksToObjects();
-  // console.log("BOYA", tasksToAppend)
   var newToDoList = new ToDoList({
     id: Date.now(),
     title: thisListTitle,
     tasks: tasksToAppend,
     urgency: false
     });
-  // console.log("hiiii", newToDoList)
   toDoListArray.push(newToDoList);
   newToDoList.saveToStorage(toDoListArray)
   appendToDoListToDom(newToDoList)
@@ -225,12 +216,10 @@ function appendTaskToCard(newToDoList) {
             ${newToDoList.tasks[i].taskBody}
               </p>
             </li>`
-            // console.log("TASK", newToDoList.tasks[i].taskBody)
   } return sortTasksList;
 };
 
 function appendToDoListToDom(newToDoList) {
-  // console.log("HIYO", toDoListArray)
    var toDoList = 
        `<article class="card-template" id="card-template-urgent" data-id=${newToDoList.id}>
         <h2 class="card-title" id="card-title-urgent">${newToDoList.title}</h2>
@@ -261,8 +250,19 @@ function appendPreviewTaskItem(id, task) {
       </li>`
     addPreviewTaskItems.insertAdjacentHTML('beforeend', previewToAppend);
     taskItemInput.value = '';
-    disableAddPreviewTaskBtn()
+    disableAddPreviewTaskBtn();
 };
+
+function toggleUrgency(e) {
+  if(e.target.classList.contains('card-urgent-btn')) {
+    var targetToDoCard = findCardId(e);
+    targetToDoCard.updateToDo();
+    var urgencyImg = targetToDoCard ? 'images/urgent-active.svg' : 'images/urgent.svg';
+    e.target.setAttribute('src', urgencyImg);
+    toggleUrgencyStyle(e, targetToDoCard);
+  };
+};
+
 
   //Phase Two: Completing The MVP (Minimum Viable Product)
     //Checking Off A Task 

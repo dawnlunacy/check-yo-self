@@ -279,6 +279,25 @@ li {
   background-color: #59597A;
 }
 
+/* Urgent Active */
+
+/*#card-template-urgent {
+  background-color:#FFE79D;
+  border: 2px solid #FEC61B;
+}
+
+#card-title-urgent {
+  border-bottom: 2px solid #FEC61B;
+}
+
+#card-footer-urgent {
+  border-top: 2px solid #FEC61B;
+}
+
+#card-footer-text-urgent {
+  color:#B7452D;
+}*/
+
 @media screen and (max-width: 800px) {
     
   .card-display-area {
