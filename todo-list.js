@@ -17,6 +17,7 @@ class ToDoList {
   updateToDo() {
     this.urgency = !this.urgency;
     this.saveToStorage(toDoListArray);
+    return "YOU MADE IT"
   };
 
   updateTask(taskObj) {
