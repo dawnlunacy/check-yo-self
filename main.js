@@ -23,7 +23,59 @@ addPreviewTaskItemContainer.addEventListener('click', deletePreviewTaskItemFromD
 taskItemInput.addEventListener('keyup', btnsHelper);
 taskTitleInput.addEventListener('keyup', btnsHelper);
 makeTaskListBtn.addEventListener('click', makeTaskList);
+cardDisplayArea.addEventListener('click', toggleCheckBox);
+cardDisplayArea.addEventListener('click', cardBtnsHelper);
 
+
+
+function toggleCheckBox(e) {
+  if(e.target.classList.contains('card-checkbox-img')) {
+    var targetCard = findCardId(e);
+    var targetTaskId = findTaskIdFromArray(e);
+    var taskToSelectObj = findTask(targetTaskId, targetCard.tasks);
+    targetCard.updateTask(taskToSelectObj);
+    ("hello", taskToSelectObj);
+    toggleCheckBoxOnDom(e, taskToSelectObj);
+  };
+};
+
+function toggleCheckBoxOnDom(e, taskToSelectObj) {
+  if(taskToSelectObj.checked === true) {
+    e.target.setAttribute('src', 'images/checkbox-active.svg');
+  } else {
+    e.target.setAttribute('src', 'images/checkbox.svg');
+  };
+  toggleCheckBoxStyle(e);
+};
+
+function toggleCheckBoxStyle(e) {
+  var checkBoxText = e.target.closest('li').querySelector('.task-list-items');
+  checkBoxText.classList.toggle('check-box-text-active');
+  checkBoxText.classList.toggle('check-box-text-inactive');
+  };
+
+function findCardId(e) {
+  var cardId = e.target.closest('article').getAttribute('data-id');
+  var targetCard = findToDoCard(cardId);
+    return targetCard;
+  };
+
+function findToDoCard(idOfCard) {
+  return toDoListArray.find(function(instanceOfCard) {
+    return instanceOfCard.id == idOfCard;
+    });
+  };
+
+function findTaskIdFromArray(e) {
+  var taskId = e.target.closest('li').getAttribute('data-id');
+    return taskId;
+  };
+
+  function findTask(targetTaskId, targetCardTaskArray) {
+    return targetCardTaskArray.find(function(task) {
+      return task.taskId == targetTaskId;
+    });
+  };
 
 function pageLoadHelper() {
   disableMakeTaskListBtn();
@@ -65,10 +117,9 @@ function previewTaskItemHelper(e) {
 };
 
 function deletePreviewTaskItemFromDom(e) {
-  if(e.target.closest('.preview-checkbox-img')) {
-   e.target.closest('.preview-task-item').remove();
-  };
-};
+  if (e.target.closest('.preview-checkbox-img')) {
+   e.target.closest('.preview-task-item').remove()
+
 
 function btnsHelper() {
   disableAddPreviewTaskBtn();
@@ -128,11 +179,11 @@ function tasksToObjects() {
   var taskItems = [];
   tasks.forEach(function(task) {
     var taskItem = {
-          taskID: task.dataset.id,
+          taskId: task.dataset.id,
           taskBody: task.innerText,
           checked: false
     }
-    taskItems.push(taskItem);
+  taskItems.push(taskItem);
   });
   return taskItems;
 };
@@ -147,33 +198,49 @@ function createNewToDoList() {
     urgency: false
     });
   toDoListArray.push(newToDoList);
-  newToDoList.saveToStorage(toDoListArray);
-  appendToDoListToDom(newToDoList);
-};
+
+  newToDoList.saveToStorage(toDoListArray)
+  appendToDoListToDom(newToDoList)
 
 function appendTaskToCard(newToDoList) {
   var sortTasksList = '';
   for (var i = 0; i < newToDoList.tasks.length; i++){
+    if(newToDoList.tasks[i].checked === true){
+      checkBoxImg = "checkbox-active.svg";
+      checkBoxText = "check-box-text-active";
+    } else {
+      checkBoxImg = "checkbox.svg"
+      checkBoxText = "check-box-text-inactive"
+    }
     sortTasksList += 
-            `<li class="card-task-list" data-id=${newToDoList.tasks[i].id}>
-              <img src="images/checkbox.svg" class="card-checkbox-img" alt="empty checkbox">
-            ${newToDoList.tasks[i].taskBody}</li>`
+
+           `<li class="card-task-list" data-id=${newToDoList.tasks[i].taskId}>
+              <img src="images/${checkBoxImg}" class="card-checkbox-img" alt="empty checkbox">
+              <p class="task-list-items ${checkBoxText}">
+            ${newToDoList.tasks[i].taskBody}
+              </p>
+            </li>`
   } return sortTasksList;
 };
 
 function appendToDoListToDom(newToDoList) {
-   var toDoList = 
-       `<article class="card-template" id="card-template-urgent" data-id=${newToDoList.id}>
-        <h2 class="card-title" id="card-title-urgent">${newToDoList.title}</h2>
+  var urgencyImg = newToDoList ? 'urgent-active.svg' : 'urgent.svg';
+  var urgencyBackground = newToDoList ? 'card-template-urgent' :'card-template';
+  var urgencyBorderTop = newToDoList ? 'card-title-urgent': 'card-title';
+  var urgencyBorderBottom = newToDoList ? 'card-footer-urgent' : 'card-footer';
+  var urgencyText = newToDoList ? 'card-footer-text-urgent' : 'card-footer-text';
+  var toDoList = 
+       `<article class="card-template card-template-urgent" data-id=${newToDoList.id}>
+        <h2 class="card-title card-title-urgent">${newToDoList.title}</h2>
         <main class="card-main">
           <ul class="card-tasks">
             ${appendTaskToCard(newToDoList)}
           </ul>
         </main>
-        <footer class="card-footer" id="card-footer-urgent">
+        <footer class="card-footer card-footer-urgent">
           <div class="card-urgent-btn"${newToDoList.urgency}>
-            <img src="images/urgent.svg" class="footer-img" alt="urgency button">
-            <p class="card-footer-text" id="card-footer-text-urgent">URGENT</p>
+            <img src="images/${urgencyImg}" class="footer-img card-urgent-btn-img" alt="urgency button">
+            <p class="card-footer-text card-footer-text-urgent">${urgencyText}</p>
           </div>
           <div class="card-delete-btn">
             <img src="images/delete.svg" class="footer-img">
@@ -194,3 +261,29 @@ function appendPreviewTaskItem(id, task) {
     taskItemInput.value = '';
     disableAddPreviewTaskBtn();
 };
+
+function toggleUrgency(e) {
+  if (e.target.classList.contains('card-urgent-btn') || e.target.classList.contains('card-urgent-btn-img')) {
+    var targetToDoCard = findCardId(e);
+    targetToDoCard.updateToDo();
+    var urgencyImg = targetToDoCard ? 'images/urgent-active.svg' : 'images/urgent.svg';
+    e.target.setAttribute('src', urgencyImg);
+    toggleUrgencyStyle(e, targetToDoCard);
+  };
+};
+
+function toggleUrgencyStyle(e, targetToDoCard) {
+  var urgencyCard = e.target.closest('article');
+  var urgencyBorderTop = e.target.closest('article').querySelector('.card-title');
+  var urgencyBorderBottom = e.target.closest('article').querySelector('.card-footer');
+  var urgencyText = e.target.closest('article').querySelector('.card-footer-text');
+  urgencyCard.classList.toggle('card-template-urgent');
+  urgencyBorderTop.classList.toggle('card-title-urgent');
+  urgencyBorderBottom.classList.toggle('card-footer-urgent');
+  urgencyText.classList.toggle('card-footer-text-urgent');
+};
+
+function cardBtnsHelper(e) {
+  toggleUrgency(e);
+};
+

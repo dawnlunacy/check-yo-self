@@ -15,11 +15,13 @@ class ToDoList {
   };
 
   updateToDo() {
-
+    this.urgency = !this.urgency;
+    this.saveToStorage(toDoListArray);
   };
 
-  updateTask() {
-
+  updateTask(taskObj) {
+    taskObj.checked = !taskObj.checked;
+    this.saveToStorage(toDoListArray);
   };
 };
 
