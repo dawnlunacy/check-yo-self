@@ -33,8 +33,7 @@ taskItemInput.addEventListener('keyup', btnsHelper);
 taskTitleInput.addEventListener('keyup', btnsHelper);
 makeTaskListBtn.addEventListener('click', makeTaskList);
 cardDisplayArea.addEventListener('click', toggleCheckBox);
-
-
+cardDisplayArea.addEventListener('click', cardBtnsHelper);
 
 
 function toggleCheckBox(e) {
@@ -43,6 +42,7 @@ function toggleCheckBox(e) {
     var targetTaskId = findTaskIdFromArray(e);
     var taskToSelectObj = findTask(targetTaskId, targetCard.tasks);
     targetCard.updateTask(taskToSelectObj);
+    ("hello", taskToSelectObj);
     toggleCheckBoxOnDom(e, taskToSelectObj);
   };
 };
@@ -220,18 +220,24 @@ function appendTaskToCard(newToDoList) {
 };
 
 function appendToDoListToDom(newToDoList) {
+  var urgencyImg = newToDoList ? 'urgent-active.svg' : 'urgent.svg';
+  var urgencyBackground = newToDoList ? 'card-template-urgent' :'card-template';
+  var urgencyBorderTop = newToDoList ? 'card-title-urgent': 'card-title';
+  var urgencyBorderBottom = newToDoList ? 'card-footer-urgent' : 'card-footer';
+  var urgencyText = newToDoList ? 'card-footer-text-urgent' : 'card-footer-text';
+
    var toDoList = 
-       `<article class="card-template" id="card-template-urgent" data-id=${newToDoList.id}>
-        <h2 class="card-title" id="card-title-urgent">${newToDoList.title}</h2>
+       `<article class="card-template card-template-urgent" data-id=${newToDoList.id}>
+        <h2 class="card-title card-title-urgent">${newToDoList.title}</h2>
         <main class="card-main">
           <ul class="card-tasks">
             ${appendTaskToCard(newToDoList)}
           </ul>
         </main>
-        <footer class="card-footer" id="card-footer-urgent">
+        <footer class="card-footer card-footer-urgent">
           <div class="card-urgent-btn"${newToDoList.urgency}>
-            <img src="images/urgent.svg" class="footer-img" alt="urgency button">
-            <p class="card-footer-text" id="card-footer-text-urgent">URGENT</p>
+            <img src="images/${urgencyImg}" class="footer-img card-urgent-btn-img" alt="urgency button">
+            <p class="card-footer-text card-footer-text-urgent">${urgencyText}</p>
           </div>
           <div class="card-delete-btn">
             <img src="images/delete.svg" class="footer-img">
@@ -254,7 +260,7 @@ function appendPreviewTaskItem(id, task) {
 };
 
 function toggleUrgency(e) {
-  if(e.target.classList.contains('card-urgent-btn')) {
+  if (e.target.classList.contains('card-urgent-btn') || e.target.classList.contains('card-urgent-btn-img')) {
     var targetToDoCard = findCardId(e);
     targetToDoCard.updateToDo();
     var urgencyImg = targetToDoCard ? 'images/urgent-active.svg' : 'images/urgent.svg';
@@ -263,6 +269,21 @@ function toggleUrgency(e) {
   };
 };
 
+function toggleUrgencyStyle(e, targetToDoCard) {
+  var urgencyCard = e.target.closest('article');
+  var urgencyBorderTop = e.target.closest('article').querySelector('.card-title');
+  var urgencyBorderBottom = e.target.closest('article').querySelector('.card-footer');
+  var urgencyText = e.target.closest('article').querySelector('.card-footer-text');
+  urgencyCard.classList.toggle('card-template-urgent');
+  urgencyBorderTop.classList.toggle('card-title-urgent');
+  urgencyBorderBottom.classList.toggle('card-footer-urgent');
+  urgencyText.classList.toggle('card-footer-text-urgent');
+
+}
+
+function cardBtnsHelper(e) {
+  toggleUrgency(e);
+}
 
   //Phase Two: Completing The MVP (Minimum Viable Product)
     //Checking Off A Task 
