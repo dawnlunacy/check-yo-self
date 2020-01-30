@@ -200,7 +200,7 @@ function createNewToDoList() {
     id: Date.now(),
     title: thisListTitle,
     tasks: tasksToAppend,
-    urgency: false
+    urgency: urgency || false
     });
   toDoListArray.push(newToDoList);
   newToDoList.saveToStorage(toDoListArray)
@@ -228,32 +228,28 @@ function appendTaskToCard(newToDoList) {
 };
 
 function appendToDoListToDom(newToDoList) {
-  var urgencyImg = newToDoList.urgency ? 'urgent-active.svg' : 'urgent.svg';
-  var urgencyCardBackground = newToDoList.urgency ? 'card-template-urgent' : 'card-template-inactive';
-  var urgencyBorderTop = newToDoList.urgency ? 'card-title-urgent': 'card-title';
-  var urgencyBorderBottom = newToDoList.urgency ? 'card-footer-urgent' : 'card-footer';
-  var urgencyText = newToDoList.urgency ? 'card-footer-text-urgent' : 'card-footer-text-inactive ';
+  var urgencyImg = newToDoList ? 'urgent-active.svg' : 'urgent.svg';
+  var urgencyBackground = newToDoList ? 'card-template-urgent' :'card-template';
+  var urgencyBorderTop = newToDoList ? 'card-title-urgent': 'card-title';
+  var urgencyBorderBottom = newToDoList ? 'card-footer-urgent' : 'card-footer';
+  var urgencyText = newToDoList ? 'card-footer-text-urgent' : 'card-footer-text';
 
    var toDoList = 
-       `<article class="${urgencyCardBackground}" data-id=${newToDoList.id}>
-        <h2 class="${urgencyBorderTop}">${newToDoList.title}</h2>
+       `<article class="card-template card-template-urgent" data-id=${newToDoList.id}>
+        <h2 class="card-title card-title-urgent">${newToDoList.title}</h2>
         <main class="card-main">
           <ul class="card-tasks">
             ${appendTaskToCard(newToDoList)}
           </ul>
         </main>
-        <footer class="${urgencyBorderBottom}">
-          <div>
-            <button class="card-urgent-btn ${newToDoList.urgency}">
-              <img src="images/${urgencyImg}" class="footer-img card-urgent-btn-img" alt="urgency button">
-            <p class="${urgencyText}">URGENT</p>
-            </button>
+        <footer class="card-footer card-footer-urgent">
+          <div class="card-urgent-btn"${newToDoList.urgency}>
+            <img src="images/${urgencyImg}" class="footer-img card-urgent-btn-img" alt="urgency button">
+            <p class="card-footer-text card-footer-text-urgent">${urgencyText}</p>
           </div>
-          <div>
-            <button class="card-delete-btn">
-              <img src="images/delete.svg" class="footer-img">
+          <div class="card-delete-btn">
+            <img src="images/delete.svg" class="footer-img">
             <p class="card-footer-text" id="delete">DELETE</p>
-            </button>
           </div>
         </footer>
       </article>`
@@ -282,11 +278,11 @@ function toggleUrgency(e) {
 };
 
 function toggleUrgencyStyle(e, targetToDoCard) {
-  var urgencyCardBackground = e.target.closest('article');
+  var urgencyCard = e.target.closest('article');
   var urgencyBorderTop = e.target.closest('article').querySelector('.card-title');
   var urgencyBorderBottom = e.target.closest('article').querySelector('.card-footer');
   var urgencyText = e.target.closest('article').querySelector('.card-footer-text');
-  urgencyCardBackground.classList.toggle('card-template-urgent');
+  urgencyCard.classList.toggle('card-template-urgent');
   urgencyBorderTop.classList.toggle('card-title-urgent');
   urgencyBorderBottom.classList.toggle('card-footer-urgent');
   urgencyText.classList.toggle('card-footer-text-urgent');

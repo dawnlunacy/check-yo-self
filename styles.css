@@ -184,7 +184,7 @@ main {
   width: 66.7%;
 }
 
-.card-template-inactive {
+.card-template {
   background-color: #F9FDFF;
   border: 2px solid #C7D3D8;
   break-inside:avoid;
@@ -254,15 +254,13 @@ li {
   padding: 5px 10px 0px 10px;
 }
 
-.card-urgent-btn,
+.card-urgent-btn
 .card-delete-btn {
   align-items: center;
-  background-color: transparent;
-  border: none;
   display: flex;
   flex-direction: column;
-  width:50px;
-  height:40px;
+  height: 40px;
+  width: 40px;
 }
 
 .card-footer-text {
@@ -271,14 +269,9 @@ li {
   margin-top: 5px;
 }
 
-.card-footer-text-inactive {
-  color: #587A8A;
-  font-size: 12px;
-  margin-top: 5px;
-}
-
 .footer-img {
   height: 20px;
+  margin-left: 24%;
   width: 20px;
 }
 
@@ -291,42 +284,18 @@ li {
 .card-template-urgent {
   background-color:#FFE79D;
   border: 2px solid #FEC61B;
-  break-inside: avoid;
-  display: inline-block;
-  margin: 0 30px 30px 0;
-  min-height: 200px;
-  min-width: 250px;
-  padding: 10px 5px 5px 5px;
-  width: 100%;
 }
 
 .card-title-urgent {
   border-bottom: 2px solid #FEC61B;
-  color: #1F1F3D;
-  font-family:'Open-Sans', sans-serif;
-  font-size: 24px;
-  font-weight: 800;
-  height: 50px;
-  padding:10px;
 }
 
 .card-footer-urgent {
   border-top: 2px solid #FEC61B;
-  align-items: flex-end; 
-  color: #1F1F3D;
-  color:#486F7F;
-  display: flex;
-  font-family: 'Open-Sans', sans-serif;
-  font-weight: 400;
-  height: 50px;
-  justify-content: space-between;
-  padding: 5px 10px 0px 10px;
 }
 
 .card-footer-text-urgent {
   color:#B7452D;
-  font-size: 12px;
-  margin-top: 5px;
 }
 
 @media screen and (max-width: 800px) {
